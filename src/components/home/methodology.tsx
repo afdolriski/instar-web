@@ -136,8 +136,6 @@ export default function Methodology() {
               <ProfileCard key={key} {...item} />
             ))}
           </div>
-
-
         </div>
       </div>
     </div>

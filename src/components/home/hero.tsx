@@ -3,7 +3,7 @@ import { Button } from "../ui/button"
 
 export default function Hero() {
   return (
-    <section className="relative md:px-32 bg-[#24443e]">
+    <section className="relative p-4 md:px-32 bg-[#24443e]">
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative mx-auto">

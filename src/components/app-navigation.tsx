@@ -61,12 +61,11 @@ export function AppNavigation({ className }: React.ComponentProps<"div">) {
       <NavigationMenuList>
         {navItems.map((item, key) => (
           item.items ? (
-            <NavigationMenuItem>
+            <NavigationMenuItem key={key}>
               <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[300px] gap-4">
                   <li>
-
                     {item.items?.map((child, key) => (
                       <NavigationMenuLink asChild key={key}>
                         <Link href={child.href}>

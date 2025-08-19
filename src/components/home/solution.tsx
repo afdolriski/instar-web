@@ -1,8 +1,7 @@
 import Image from "next/image"
-import { Globe, Star } from "lucide-react"
 import InstarBadge from "@/icons/instar-badge"
 import InstarMicrosite from "@/icons/instar-microsite"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 
 export default function Solution() {
   return (
