@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative p-6 bg-[#24443e]">
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <div className="relative z-10 mx-auto">
+      <div className="relative mx-auto">
         <div className="grid items-center">
           {/* Left Content */}
           <div className="space-y-4 py-6">

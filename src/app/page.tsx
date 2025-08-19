@@ -23,33 +23,51 @@ import Timeline from "@/components/home/timeline"
 
 export default function Page() {
   return (
-    <SidebarProvider>
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-          <Image
-            src="/images/instar.png"
-            alt="Instar"
-            width={130}
-            height={32}
-            className="w-[128px] h-auto rounded-lg"
-            priority
-          />
-          <SidebarTrigger className="-mr-1 ml-auto rotate-180" />
-        </header>
-        <div className="flex flex-1 flex-col gap-4">
-          <Hero />
-          <Section1 />
-          <Separator />
-          <Methodology />
-          <Separator />
-          <Solution />
-          <Separator />
-          <Timeline />
-          <Separator />
-          <Newsroom />
-        </div>
-      </SidebarInset>
-      <AppSidebar side="right" />
-    </SidebarProvider>
+    <div className="flex flex-1 flex-col gap-4">
+      <Hero />
+      <Section1 />
+      <Separator />
+      <Methodology />
+      <Separator />
+      <Solution />
+      <Separator />
+      <Timeline />
+      <Separator />
+      <Newsroom />
+    </div>
   )
 }
+
+
+// export default function Page() {
+//   return (
+//     <SidebarProvider>
+//       <SidebarInset>
+//         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+//           <Image
+//             src="/images/instar.png"
+//             alt="Instar"
+//             width={130}
+//             height={32}
+//             className="w-[128px] h-auto rounded-lg"
+//             priority
+//           />
+//           <SidebarTrigger className="-mr-1 ml-auto rotate-180" />
+//         </header>
+//         <div className="flex flex-1 flex-col gap-4">
+//           <Hero />
+//           <Section1 />
+//           <Separator />
+//           <Methodology />
+//           <Separator />
+//           <Solution />
+//           <Separator />
+//           <Timeline />
+//           <Separator />
+//           <Newsroom />
+//         </div>
+//       </SidebarInset>
+//       <AppSidebar side="right" />
+//     </SidebarProvider>
+//   )
+// }
