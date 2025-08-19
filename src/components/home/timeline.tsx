@@ -1,11 +1,24 @@
-import { ArrowRight, Star, Monitor } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import HighlightCard from "../highlight-card"
 import { Button } from "../ui/button"
 
+const collabs = [
+  {
+    title: 'Sponsor Kit',
+    description: 'Sponsor Kit dirancang fleksibel untuk kebutuhan eksposur dan kolaborasi perusahaan.',
+    icon: 'icons/sponsor.svg',
+  },
+  {
+    title: 'Media Kit',
+    description: 'Media Kit berisi materi promosi seperti visual, rilis artikel, dan advertorial untuk publikasi capaian perusahaan.',
+    icon: 'icons/media.svg',
+  },
+];
+
 export default function Timeline() {
   return (
-    <div className="min-h-screen bg-[#fcfcfc] p-6">
-      <div className="max-w-md mx-auto">
+    <div className="bg-[#fcfcfc] p-4 md:px-32 md:py-16">
+      <div className="mx-auto">
         {/* Header */}
         <h1 className="text-2xl font-bold text-[#212121] mb-8">Timeline INSTAR 2025</h1>
 
@@ -65,8 +78,11 @@ export default function Timeline() {
             melalui solusi INSTAR.
           </p>
 
-          <HighlightCard />
-          <HighlightCard />
+          <div className="md:flex md:space-x-8">
+            {collabs.map((item, key) => (
+              <HighlightCard key={key} {...item} />
+            ))}
+          </div>
         </div>
 
         <Button variant={"outline"}>Lihat Solusi INSTAR</Button>

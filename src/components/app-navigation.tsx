@@ -5,85 +5,90 @@ import Link from "next/link"
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu"
+
+const navItems = [
+  {
+    label: 'Beranda',
+    href: '/'
+  },
+  {
+    label: 'Peringkat INSTAR',
+    href: '#',
+    items: [
+      {
+        label: 'Peringkat INSTAR 2024',
+        href: '#',
+      },
+      {
+        label: 'Peringkat INSTAR 2025',
+        href: '#',
+      },
+    ]
+  },
+  {
+    label: 'Event',
+    href: '#',
+    items: [
+      {
+        label: 'Event INSTAR 2024',
+        href: '#',
+      },
+      {
+        label: 'Event INSTAR 2025',
+        href: '#',
+      },
+    ]
+  },
+  {
+    label: 'Solusi',
+    href: '#'
+  },
+  {
+    label: 'Tentang',
+    href: '#'
+  },
+]
 
 export function AppNavigation({ className }: React.ComponentProps<"div">) {
   return (
     <NavigationMenu viewport={false} className={className}>
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">Home</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Peringkat INSTAR</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[300px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Components</div>
-                    <div className="text-muted-foreground">
-                      Browse all components in the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Documentation</div>
-                    <div className="text-muted-foreground">
-                      Learn how to use the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Blog</div>
-                    <div className="text-muted-foreground">
-                      Read our latest blog posts.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Event</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Components</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Documentation</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Blocks</Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/solution">Solusi</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/about">Tentang</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+        {navItems.map((item, key) => (
+          item.items ? (
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[300px] gap-4">
+                  <li>
+
+                    {item.items?.map((child, key) => (
+                      <NavigationMenuLink asChild key={key}>
+                        <Link href={child.href}>
+                          <div className="font-medium">{child.label}</div>
+                          {/* <div className="text-muted-foreground">
+                            Browse all components in the library.
+                          </div> */}
+                        </Link>
+                      </NavigationMenuLink>
+                    ))}
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          ) : (
+            <NavigationMenuItem key={key}>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href={item.href}>{item.label}</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          )
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   )
@@ -107,27 +112,3 @@ function ListItem({
     </li>
   )
 }
-
-// export function AppNavigation({ className }: React.ComponentProps<"div">) {
-//   return (
-//     <NavigationMenu className={className}>
-//       <NavigationMenuList>
-//         <NavigationMenuItem>
-//           Beranda
-//         </NavigationMenuItem>
-//         <NavigationMenuItem>
-//           <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-//           <NavigationMenuContent>
-//             <NavigationMenuLink>Link</NavigationMenuLink>
-//           </NavigationMenuContent>
-//         </NavigationMenuItem>
-//         <NavigationMenuItem>
-//           <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-//           <NavigationMenuContent>
-//             <NavigationMenuLink>Link</NavigationMenuLink>
-//           </NavigationMenuContent>
-//         </NavigationMenuItem>
-//       </NavigationMenuList>
-//     </NavigationMenu>
-//   )
-// }

@@ -1,35 +1,64 @@
-import Image from "next/image"
 import { Button } from "../ui/button"
 import HighlightCard from "../highlight-card"
+import ProfileCard from "../profile-card"
 
-function ProfileCard() {
-  return (
-    <div className="max-w-md mx-auto bg-[#ffffff] mb-8 ">
-      <div>
-        <Image
-          src="/images/Sonny-Mumbunan.png"
-          alt="Sonny Mumbunan"
-          width={400}
-          height={400}
-          className="w-full h-auto rounded-lg"
-          priority
-        />
-      </div>
+const highlights = [
+  {
+    title: 'Bisnis Berintegritas',
+    description: 'Berdasarkan Transparency in Corporate Reporting (TRAC) dari Transparency International.',
+    icon: 'icons/integritas.svg',
+  },
+  {
+    title: 'Lingkungan Hidup',
+    description: 'Mengacu pada standar Global Reporting Initiative (GRI) dan Taksonomi Hijau dari OJK.',
+    icon: 'icons/lingkungan-hidup.svg',
+  },{
+    title: 'Sosial & Hak Asasi Manusia',
+    description: 'Berdasarkan UN Guiding Principles on Business and Human Rights (UNGPs).',
+    icon: 'icons/social.svg',
+  },
+];
 
-      <div className="py-4 px-4">
-        <h1 className="text-xl font-bold text-[#212121] leading-tight">Sonny Mumbunan</h1>
+const verifications = [
+  {
+    title: 'Media Monitoring',
+    description: 'Menelusuri pemberitaan negatif dari media kredibel untuk mendeteksi praktik greenwashing atau whitewashing.',
+    icon: 'icons/monitoring.svg',
+  },
+  {
+    title: 'Corporate Resilience Check',
+    description: 'Analisis ini mengevaluasi kualitas pelaporan, potensi manipulasi dan fraud, risiko litigasi, serta ketahanan strategi dan keuangan perusahaan.',
+    icon: 'icons/report.svg',
+  },
+];
 
-        <p className="text-sm text-[#424242] leading-relaxed">Climate Policy Lab, Faculty of Social Sciences (UIII)</p>
-      </div>
-    </div>
-  )
-}
-
+const profiles = [
+  {
+    name: 'Sonny Mumbunan',
+    title: 'Climate Policy Lab, Faculty of Social Sciences (UIII)',
+    image: '/images/Sonny-Mumbunan.png',
+  },
+  {
+    name: 'Erry Riyana Hardjapamekas',
+    title: 'Ketua Koalisi Anti Korupsi',
+    image: '/images/Erry-Riyana.png',
+  },
+  {
+    name: 'Natalia Soebagjo',
+    title: 'International Council Member, Transparency International',
+    image: '/images/Natalia-Soebagjo.png',
+  },
+  {
+    name: 'Jeffrey S. Siregar',
+    title: 'Executive Director, Komite Nasional Kebijakan Governansi',
+    image: '/images/Jeffrey-Siregar.png',
+  },
+];
 
 export default function Methodology() {
   return (
-    <div className="bg-[#fcfcfc] p-4 mb-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="bg-[#fcfcfc] p-4 mb-8 md:px-32">
+      <div className="mx-auto">
 
         <div className="mb-8">
           <div className="mb-4">
@@ -41,22 +70,28 @@ export default function Methodology() {
           </div>
 
           <div className="p-6">
-            <div className="flex items-start gap-4 mb-4">
+            <div className="flex items-start gap-4 mb-4 ">
               <div className="justify-center font-bold text-lg">
                 1.
               </div>
               <div>
-                <h3 className="font-bold text-[#212121] mb-2">Desk Research oleh Transparency International Indonesia (TII)</h3>
+                <h3 className="font-bold mb-2">Desk Research oleh Transparency International Indonesia (TII)</h3>
               </div>
             </div>
-            <p className="text-sm text-[#424242] leading-relaxed">
+            <p className="text-sm">
               TII melakukan penilaian terhadap dokumen resmi perusahaan—seperti Annual Report, Sustainability Report, dan Pedoman Etika—menggunakan 42 indikator yang mencakup:
             </p>
           </div>
 
-          <HighlightCard />
-          <HighlightCard />
-          <HighlightCard />
+          <div className="md:flex md:space-x-8">
+            {highlights.map((item, key) => (
+              <HighlightCard key={key} {...item} />
+            ))}
+          </div>
+
+          <p className="text-sm mb-6 pl-6">
+            Hasil dari proses ini membentuk skor Desk Research INSTAR, yang menjadi dasar kelayakan untuk verifikasi lanjutan.
+          </p>
 
           <div className="p-6">
             <div className="flex items-start gap-4 mb-4">
@@ -72,33 +107,22 @@ export default function Methodology() {
             </p>
           </div>
 
-          <HighlightCard />
-          <HighlightCard />
-
-          <div className="p-6">
-            <p className="text-sm text-[#424242] leading-relaxed">
-              Penilaian ini mengikuti agar hanya perusahaan yang terbaik, benar berintegritas dan tangguh yang dapat
-              lolos.
-            </p>
+          <div className="md:flex md:space-x-8">
+            {verifications.map((item, key) => (
+              <HighlightCard key={key} {...item} />
+            ))}
           </div>
+
+          <p className="text-sm mb-6 pl-6">
+            Penilaian ini mengikuti agar hanya perusahaan yang terbaik, benar berintegritas dan tangguh yang dapat
+            lolos.
+          </p>
           
           <Button variant={'outline'}>Lihat Metodologi Selengkapnya</Button>
         </div>
 
-
-        {/* Expert Profiles Header */}
-        {/* <div className="bg-[#2f5951] text-white p-6">
-          <h2 className="text-xl font-bold mb-2">Profil Pakar INSTAR 2025</h2>
-          <p className="text-sm leading-relaxed">
-            Penilaian dilakukan oleh para pakar dan spesialis bersama para pakar dari bidang HAM dan lingkungan. Dengan
-            pengalaman bertahun-tahun, mereka untuk memastikan hasil yang kredibel dan akurat saat.
-          </p>
-        </div> */}
-
-        {/* <ProfileCard /> */}
-
         {/* Expert Profiles */}
-        <div className="space-y-0 px-4 bg-[#24443e] py-8">
+        <div className="space-y-0 p-4 bg-[#24443e]">
           <div className="text-white mb-4">
             <h2 className="text-xl font-bold mb-2">Profil Pakar INSTAR 2025</h2>
             <p className="text-sm leading-relaxed">
@@ -107,11 +131,11 @@ export default function Methodology() {
             </p>
           </div>
 
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
+          <div className="md:grid md:grid-cols-4 gap-4">
+            {profiles.map((item, key) => (
+              <ProfileCard key={key} {...item} />
+            ))}
+          </div>
 
 
         </div>

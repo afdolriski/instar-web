@@ -2,12 +2,12 @@ import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import NewsroomCard from "../newsroom-card"
 
 export default function Newsroom() {
   return (
-    <div className="min-h-screen bg-[#fcfcfc] text-[#212121] p-4">
-      <div className="max-w-md mx-auto">
-        {/* Header */}
+    <div className="bg-[#fcfcfc] p-4 md:px-32 md:py-16">
+      <div className="mx-auto">
         <div className="flex items-center justify-between p-4 bg-[#ffffff]">
           <h1 className="text-xl font-semibold text-[#212121]">Newsroom</h1>
           <div className="flex items-center gap-2">
@@ -23,35 +23,26 @@ export default function Newsroom() {
         {/* News Cards */}
         <div className="p-4 space-y-4">
           <div className="flex gap-4">
-            <Card className="flex-1 bg-[#ffffff] border-[#e0e0e0]">
-              <CardContent className="p-0">
-                <img
-                  src="/placeholder-ntewk.png"
-                  alt="News article"
-                  className="w-full h-24 object-cover rounded-t-lg"
-                />
-                <div className="p-3">
-                  <p className="text-sm text-[#616161] leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="flex-1 bg-[#ffffff] border-[#e0e0e0]">
-              <CardContent className="p-0">
-                <img
-                  src="/business-meeting.png"
-                  alt="News article"
-                  className="w-full h-24 object-cover rounded-t-lg"
-                />
-                <div className="p-3">
-                  <p className="text-sm text-[#616161] leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <NewsroomCard
+              title="News article"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              image="/images/tii.png"
+            />
+            <NewsroomCard
+              title="News article"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              image="/images/tii.png"
+            />
+            <NewsroomCard
+              title="News article"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              image="/images/tii.png"
+            />
+            <NewsroomCard
+              title="News article"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              image="/images/tii.png"
+            />
           </div>
         </div>
 
@@ -60,7 +51,7 @@ export default function Newsroom() {
           <h2 className="text-2xl font-bold text-[#212121] mb-2">Frequently Asked Questions (FAQ)</h2>
           <p className="text-[#616161] mb-6">Indeks Integritas Bisnis Lestari (INSTAR)</p>
 
-          <div className="space-y-4">
+          <div className="space-y-4 md:w-[80%] mx-auto">
             {/* First FAQ Item - Expanded */}
             <Collapsible defaultOpen className="bg-[#ffffff] rounded-lg border border-[#e0e0e0]">
               <CollapsibleTrigger className="flex items-center justify-between w-full p-4 text-left">
@@ -106,11 +97,7 @@ export default function Newsroom() {
               </CollapsibleContent>
             </Collapsible>
 
-          </div>
-
-          {/* See More Button */}
-          <div className="mt-6">
-            <Button variant="outline">
+            <Button variant="outline" className="mt-6">
               Lihat Pertanyaan Lainnya
             </Button>
           </div>
