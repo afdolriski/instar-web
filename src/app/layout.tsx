@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Merriweather } from "next/font/google";
 import "./globals.css";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
@@ -12,6 +12,15 @@ const monsterratFont = Montserrat({
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Arial', 'sans-serif'],
+  variable: '--font-sans',
+});
+
+const merriWeatherFont = Merriweather({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['Arial', 'sans-serif'],
+  variable: '--font-secondary',
 });
 
 export const metadata: Metadata = {
@@ -27,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${monsterratFont.className} antialiased`}
+        className={`${monsterratFont.variable} ${merriWeatherFont.variable} font-sans antialiased`}
       >
         <SidebarProvider defaultOpen={false}>
           <SidebarInset>

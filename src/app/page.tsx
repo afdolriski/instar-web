@@ -16,9 +16,9 @@ export default function Page() {
       <Separator />
       <Solution />
       <Separator />
-      <Timeline />
+      {/* <Timeline />
       <Separator />
-      <Newsroom />
+      <Newsroom /> */}
     </div>
   )
 }

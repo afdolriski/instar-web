@@ -15,19 +15,20 @@ import {
 const navItems = [
   {
     label: 'Beranda',
-    href: '/'
+    href: '/',
+    isActive: true
   },
   {
     label: 'Peringkat INSTAR',
     href: '#',
     items: [
       {
-        label: 'Peringkat INSTAR 2024',
-        href: '#',
+        label: 'Peringkat INSTAR 2025',
+        href: '/ranking/2025',
       },
       {
-        label: 'Peringkat INSTAR 2025',
-        href: '#',
+        label: 'Peringkat INSTAR 2024',
+        href: '/ranking/2024',
       },
     ]
   },
@@ -36,22 +37,22 @@ const navItems = [
     href: '#',
     items: [
       {
-        label: 'Event INSTAR 2024',
-        href: '#',
+        label: 'Event INSTAR 2025',
+        href: '/event/2025',
       },
       {
-        label: 'Event INSTAR 2025',
-        href: '#',
+        label: 'Event INSTAR 2024',
+        href: '/event/2024',
       },
     ]
   },
   {
     label: 'Solusi',
-    href: '#'
+    href: '/solution'
   },
   {
     label: 'Tentang',
-    href: '#'
+    href: '/about'
   },
 ]
 
@@ -64,15 +65,12 @@ export function AppNavigation({ className }: React.ComponentProps<"div">) {
             <NavigationMenuItem key={key}>
               <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[300px] gap-4">
+                <ul className="grid w-auto gap-4">
                   <li>
                     {item.items?.map((child, key) => (
                       <NavigationMenuLink asChild key={key}>
                         <Link href={child.href}>
                           <div className="font-medium">{child.label}</div>
-                          {/* <div className="text-muted-foreground">
-                            Browse all components in the library.
-                          </div> */}
                         </Link>
                       </NavigationMenuLink>
                     ))}
@@ -82,7 +80,7 @@ export function AppNavigation({ className }: React.ComponentProps<"div">) {
             </NavigationMenuItem>
           ) : (
             <NavigationMenuItem key={key}>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink asChild>
                 <Link href={item.href}>{item.label}</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -90,24 +88,5 @@ export function AppNavigation({ className }: React.ComponentProps<"div">) {
         ))}
       </NavigationMenuList>
     </NavigationMenu>
-  )
-}
-function ListItem({
-  title,
-  children,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
   )
 }

@@ -7,6 +7,7 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarMenuSubButton,
@@ -15,50 +16,48 @@ import {
 } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 import { ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 // This is sample data.
 const data = {
   navMain: [
     {
       title: "Beranda",
-      url: "#",
-      isActive: true,
+      url: "/",
     },
     {
       title: "Peringkat INSTAR",
-      url: "#",
       items: [
         {
           title: "Peringkat INSTAR 2025",
-          url: "#",
+          url: "/ranking/2025",
         },
         {
           title: "Peringkat INSTAR 2024",
-          url: "#",
+          url: "/ranking/2024",
         },
       ],
     },
     {
       title: "Event",
-      url: "#",
       items: [
         {
           title: "Event INSTAR 2025",
-          url: "#",
+          url: "/events/2025",
         },
         {
           title: "Event INSTAR 2024",
-          url: "#",
+          url: "/events/2025",
         },
       ],
     },
     {
       title: "Solusi",
-      url: "#",
+      url: "/solution",
     },
     {
       title: "Tentang",
-      url: "#",
+      url: "/about",
     },
   ],
 }
@@ -66,23 +65,12 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
+      {/* <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            {/* <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <GalleryVerticalEnd className="size-4" />
-                </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-medium">Documentation</span>
-                  <span className="">v1.0.0</span>
-                </div>
-              </a>
-            </SidebarMenuButton> */}
           </SidebarMenuItem>
         </SidebarMenu>
-      </SidebarHeader>
+      </SidebarHeader> */}
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
@@ -95,14 +83,22 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <SidebarMenuItem>
                   <SidebarGroupLabel
                     asChild
-                    className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
+                    className="group/label text-sidebar-foreground hover:text-sidebar-accent-foreground text-sm"
                   >
-                    <CollapsibleTrigger>
-                      {item.title}{" "}
-                      {item.items && (
-                        <ChevronRight className="ml-2 transition-transform group-data-[state=open]/collapsible:rotate-90" />
-                      )}
-                    </CollapsibleTrigger>
+                    {item.items ? (
+                      <CollapsibleTrigger>
+                        {item.title}{" "}
+                        {item.items && (
+                          <ChevronRight className="ml-2 transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                        )}
+                      </CollapsibleTrigger>
+                    ): (
+                      <SidebarMenuButton asChild>
+                        <Link href={item.url!}>
+                          <div className="font-medium">{item.title}</div>
+                        </Link>
+                      </SidebarMenuButton>
+                    )}
                   </SidebarGroupLabel>
 
                   {item.items?.length ? (

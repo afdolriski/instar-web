@@ -1,5 +1,6 @@
 import Image from "next/image"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
+import { ImageZoom } from '@/components/ui/shadcn-io/image-zoom';
 
 const chartData = [
   { sector: "Keuangan", failed: 60, passed: 90, total: 150 },
@@ -56,14 +57,16 @@ export default function Section1() {
             </div>
           </div> */}
 
-          <Image
-            src="/images/chart-lg.png"
-            alt="Tempo"
-            width={1100}
-            height={480}
-            className="w-full h-auto"
-            priority
-          />
+          <ImageZoom>
+            <Image
+              src="/images/chart-lg.png"
+              alt="Tempo"
+              width={1100}
+              height={480}
+              className="w-full h-auto"
+              unoptimized
+            />
+          </ImageZoom>
 
           {/* Chart */}
           {/* <div className="space-y-3">
