@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Button } from "../ui/button"
+import Link from "next/link"
 
 export default function Hero() {
   return (
@@ -39,7 +40,11 @@ export default function Hero() {
                 perusahaan Indonesia dalam aksi berintegritas dan berkelanjutan.
               </p>
 
-              <Button>Peringkat INSTAR 2025</Button>
+              <Button asChild>
+                <Link href="/ranking/2025">
+                  Peringkat INSTAR 2025
+                </Link>
+              </Button>
             </div>
 
             <div>
@@ -71,11 +76,9 @@ export default function Hero() {
                   className="w-[100px] h-auto"
                   priority
                 />
-
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

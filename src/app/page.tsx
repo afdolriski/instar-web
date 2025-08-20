@@ -8,17 +8,19 @@ import Timeline from "@/components/home/timeline"
 
 export default function Page() {
   return (
-    <div className="flex flex-1 flex-col gap-4">
+    <div className="flex flex-1 flex-col">
       <Hero />
-      <Section1 />
-      <Separator />
-      <Methodology />
-      <Separator />
-      <Solution />
-      <Separator />
-      {/* <Timeline />
-      <Separator />
-      <Newsroom /> */}
+      <div>
+        <Section1 />
+        <Separator />
+        <Methodology />
+        <Separator />
+        <Solution />
+        <Separator />
+        <Timeline />
+        <Separator />
+        <Newsroom />
+      </div>
     </div>
   )
 }

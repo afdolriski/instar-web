@@ -57,81 +57,64 @@ const profiles = [
 
 export default function Methodology() {
   return (
-    <div className="bg-[#fcfcfc] p-4 mb-8 md:px-32">
-      <div className="mx-auto">
-
-        <div className="mb-8">
-          <div className="mb-4">
-            <h2 className="text-xl font-semibold mb-1">Standar Penilaian INSTAR Berdasarkan Prinsip ESG International</h2>
-            <p className="text-sm leading-relaxed">
-              Penilaian INSTAR dilakukan secara objektif, periodik dan tidak mencari keuntungan yang berlebihan dari
-              perusahaan yang dinilai.
-            </p>
-          </div>
-
-          <div className="p-6">
-            <div className="flex items-start gap-4 mb-4 ">
-              <div className="justify-center font-bold text-lg">
-                1.
-              </div>
-              <div>
-                <h3 className="font-bold mb-2">Desk Research oleh Transparency International Indonesia (TII)</h3>
-              </div>
-            </div>
-            <p className="text-sm">
-              TII melakukan penilaian terhadap dokumen resmi perusahaan—seperti Annual Report, Sustainability Report, dan Pedoman Etika—menggunakan 42 indikator yang mencakup:
-            </p>
-          </div>
-
-          <div className="md:flex md:space-x-8">
-            {highlights.map((item, key) => (
-              <HighlightCard key={key} {...item} />
-            ))}
-          </div>
-
-          <p className="text-sm mb-6 pl-6">
-            Hasil dari proses ini membentuk skor Desk Research INSTAR, yang menjadi dasar kelayakan untuk verifikasi lanjutan.
+    <div className="py-8 px-4 md:px-32 md:py-16">
+      <div className="space-y-8 md:space-y-12">
+        <div className="space-y-4">
+          <h2>Standar Penilaian INSTAR Berdasarkan Prinsip ESG International</h2>
+          <p>
+            Penilaian INSTAR dilakukan secara objektif, periodik dan tidak mencari keuntungan yang berlebihan dari
+            perusahaan yang dinilai.
           </p>
+        </div>
 
-          <div className="p-6">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="justify-center font-bold text-lg">
-                2.
+        <div className="space-y-4">
+          <div>
+            <h3>1. Desk Research oleh Transparency International Indonesia (TII)</h3>
+            <div className="p-4 space-y-4">
+              <p>
+                TII melakukan penilaian terhadap dokumen resmi perusahaan—seperti Annual Report, Sustainability Report, dan Pedoman Etika—menggunakan 42 indikator yang mencakup:
+              </p>
+              <div className="space-y-6 md:flex justify-evenly md:space-x-8 md:space-y-0">
+                {highlights.map((item, key) => (
+                  <HighlightCard key={key} {...item} />
+                ))}
               </div>
-              <div>
-                <h3 className="font-bold text-[#212121] mb-2">Verifikasi oleh Indonesia Strategy Institute (ISI)</h3>
-              </div>
+              <p>
+                Hasil dari proses ini membentuk skor Desk Research INSTAR, yang menjadi dasar kelayakan untuk verifikasi lanjutan.
+              </p>
             </div>
-            <p className="text-sm text-[#424242] leading-relaxed">
-              Nilai akhir INSTAR memerlukan verifikasi lanjutan dari skor Desk Research. Proses verifikasi lanjutan dilakukan oleh tim Indonesia Strategy Institute dengan melakukan: 
-            </p>
           </div>
 
-          <div className="md:flex md:space-x-8">
-            {verifications.map((item, key) => (
-              <HighlightCard key={key} {...item} />
-            ))}
+          <div>
+            <h3>2. Verifikasi oleh Indonesia Strategy Institute (ISI)</h3>
+            <div className="p-4 space-y-4">
+              <p>
+                Nilai akhir INSTAR memerlukan verifikasi lanjutan dari skor Desk Research. Proses verifikasi lanjutan dilakukan oleh tim Indonesia Strategy Institute dengan melakukan: 
+              </p>
+              <div className="space-y-6 md:flex justify-evenly md:space-x-8 md:space-y-0">
+                {verifications.map((item, key) => (
+                  <HighlightCard key={key} {...item} />
+                ))}
+              </div>
+              <p>
+                Penilaian ini mengikuti agar hanya perusahaan yang terbaik, benar berintegritas dan tangguh yang dapat lolos.
+              </p>
+            </div>
           </div>
-
-          <p className="text-sm mb-6 pl-6">
-            Penilaian ini mengikuti agar hanya perusahaan yang terbaik, benar berintegritas dan tangguh yang dapat
-            lolos.
-          </p>
           
           <Button variant={'outline'}>Lihat Metodologi Selengkapnya</Button>
         </div>
 
-        {/* Expert Profiles */}
-        <div className="space-y-0 p-4 bg-[#24443e]">
-          <div className="text-white mb-4">
-            <h2 className="text-xl font-bold mb-2">Profil Pakar INSTAR 2025</h2>
-            <p className="text-sm leading-relaxed">
-              Penilaian dilakukan oleh para pakar dan spesialis bersama para pakar dari bidang HAM dan lingkungan. Dengan
+        <div className="p-8 bg-tertiary-900 space-y-8 md:p-8">
+          <div className="space-y-4">
+            <h2 className="text-white">Profil Pakar INSTAR 2025</h2>
+            <p className="text-white md:max-w-[60%]">
+              Penilaian dilakukan oleh para pakar dan spesialis bersama para pakar dari bidang HAM dan lingkungan, Dengan
               pengalaman bertahun-tahun, mereka untuk memastikan hasil yang kredibel dan akurat saat.
             </p>
           </div>
 
-          <div className="md:grid md:grid-cols-4 gap-4">
+          <div className="space-y-6 md:grid md:grid-cols-4 gap-4 md:space-y-0">
             {profiles.map((item, key) => (
               <ProfileCard key={key} {...item} />
             ))}

@@ -1,104 +1,66 @@
-import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import NewsroomCard from "../newsroom-card"
+import { NewsroomCarousel } from "../ui/news-carousel"
+import { FaqList } from "../ui/faq-list"
+import { faqItems } from "@/data/faq"
+import Link from "next/link";
+
+const articles = [
+  {
+    id: "1",
+    link: "https://www.tempo.co/ekonomi/ihsg-ditutup-menguat-setelah-bi-turunkan-suku-bunga-acuan-2061124",
+    title: "IHSG Ditutup Menguat Setelah BI Turunkan Suku Bunga Acuan",
+    excerpt: "Consectetur adipiscing elit sed do eiusmod tempor.",
+    imageSrc: "https://statik.tempo.co/data/2013/04/08/id_176342/176342_650.jpg",
+    imageAlt: "Newspaper close up",
+  },
+  {
+    id: "2",
+    link: "https://www.tempo.co/ekonomi/3-blok-migas-diandalkan-untuk-genjot-produksi-minyak-2061116",
+    title: "3 Blok Migas Diandalkan untuk Genjot Produksi Minyak",
+    excerpt: "Quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+    imageSrc: "https://statik.tempo.co/data/2023/06/28/id_1215499/1215499_720.jpg",
+  },
+  {
+    id: "3",
+    link: "https://www.tempo.co/ekonomi/menteri-perdagangan-akan-revisi-aturan-minyakita-2061113",
+    title: "Menteri Perdagangan akan Revisi Aturan Minyakita",
+    excerpt: "Quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+    imageSrc: "https://statik.tempo.co/data/2025/03/09/id_1383167/1383167_720.jpg",
+  },
+  {
+    id: "4",
+    link: "https://www.tempo.co/ekonomi/fitra-minta-pemerintah-perluas-instrumen-baru-pendapatan-negara-2061110",
+    title: "Fitra Minta Pemerintah Perluas Instrumen Baru Pendapatan Negara",
+    excerpt: "Quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+    imageSrc: "https://statik.tempo.co/data/2023/03/03/id_1185884/1185884_720.jpg",
+  },
+  {
+    id: "5",
+    link: "https://www.tempo.co/ekonomi/kenapa-penurunan-suku-bunga-kredit-perbankan-lamban--2061107",
+    title: "Kenapa Penurunan Suku Bunga Kredit Perbankan Lamban?",
+    excerpt: "Quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+    imageSrc: "https://statik.tempo.co/data/2025/07/28/id_1416581/1416581_720.jpg",
+  },
+];
+
+const trimmedFaqs = [...faqItems.splice(0, 5)];
 
 export default function Newsroom() {
   return (
-    <div className="bg-[#fcfcfc] p-4 md:px-32 md:py-16">
+    <div className="py-8 px-4 md:px-32 md:py-16 space-y-10">
+      <NewsroomCarousel items={articles} />
+
       <div className="mx-auto">
-        <div className="flex items-center justify-between p-4 bg-[#ffffff]">
-          <h1 className="text-xl font-semibold text-[#212121]">Newsroom</h1>
-          <div className="flex items-center gap-2">
-            <button className="p-1">
-              <ChevronLeft className="w-5 h-5 text-[#757575]" />
-            </button>
-            <button className="p-1">
-              <ChevronRight className="w-5 h-5 text-[#757575]" />
-            </button>
-          </div>
-        </div>
-
-        {/* News Cards */}
-        <div className="p-4 space-y-4">
-          <div className="flex gap-4">
-            <NewsroomCard
-              title="News article"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-              image="/images/tii.png"
-            />
-            <NewsroomCard
-              title="News article"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-              image="/images/tii.png"
-            />
-            <NewsroomCard
-              title="News article"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-              image="/images/tii.png"
-            />
-            <NewsroomCard
-              title="News article"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-              image="/images/tii.png"
-            />
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="p-4">
+        <div>
           <h2 className="text-2xl font-bold text-[#212121] mb-2">Frequently Asked Questions (FAQ)</h2>
           <p className="text-[#616161] mb-6">Indeks Integritas Bisnis Lestari (INSTAR)</p>
 
           <div className="space-y-4 md:w-[80%] mx-auto">
-            {/* First FAQ Item - Expanded */}
-            <Collapsible defaultOpen className="bg-[#ffffff] rounded-lg border border-[#e0e0e0]">
-              <CollapsibleTrigger className="flex items-center justify-between w-full p-4 text-left">
-                <span className="font-semibold text-[#212121]">Apa itu INSTAR?</span>
-                <ChevronDown className="w-5 h-5 text-[#757575]" />
-              </CollapsibleTrigger>
-              <CollapsibleContent className="px-4 pb-4">
-                <div className="text-[#616161] text-sm leading-relaxed space-y-4">
-                  <p>
-                    Indeks Integritas Bisnis Lestari (INSTAR) adalah sebuah alat pengukuran yang digunakan untuk menilai
-                    sejauh mana perusahaan atau organisasi menerapkan praktik bisnis yang berintegritas dan
-                    berkelanjutan. Indeks ini disusun oleh Transparency International Indonesia (TII) berkolaborasi
-                    dengan TEMPO Data Science.
-                  </p>
-
-                  <p>
-                    Indeks ini mengevaluasi tiga aspek dalam prinsip operasi bisnis yang berintegritas dan berkelanjutan
-                    yakni:
-                  </p>
-
-                  <div className="space-y-1">
-                    <p>1.) Aspek Bisnis Berintegritas</p>
-                    <p>2.) Aspek Bisnis dan Hak Asasi Manusia, serta</p>
-                    <p>3.) Aspek Lingkungan Hidup.</p>
-                  </div>
-
-                  <p>
-                    Tiga aspek yang dinilai dalam indeks ini merupakan turunan dari tiga fokus utama dalam pendekatan
-                    ESG (Environmental, Social, and Governance).
-                  </p>
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
-
-            {/* Other FAQ Items - Collapsed */}
-            <Collapsible className="bg-[#ffffff] rounded-lg border border-[#e0e0e0]">
-              <CollapsibleTrigger className="flex items-center justify-between w-full p-4 text-left">
-                <span className="font-semibold text-[#212121]">Mengapa INSTAR penting?</span>
-                <ChevronDown className="w-5 h-5 text-[#757575]" />
-              </CollapsibleTrigger>
-              <CollapsibleContent className="px-4 pb-4">
-                <p className="text-[#616161] text-sm leading-relaxed">Content for this FAQ item would go here.</p>
-              </CollapsibleContent>
-            </Collapsible>
-
-            <Button variant="outline" className="mt-6">
-              Lihat Pertanyaan Lainnya
+            <FaqList items={trimmedFaqs} />
+            <Button asChild variant={"outline"}>
+              <Link href="/faq">
+                Lihat Pertanyaan Lainnya
+              </Link>
             </Button>
           </div>
         </div>

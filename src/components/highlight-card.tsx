@@ -8,7 +8,7 @@ type HighlightCardProps = {
 
 export default function HighlightCard({ title, description, icon }: HighlightCardProps) {
   return (
-    <div className="bg-[#eef6f4] flex items-center justify-center p-6 mb-4">
+    <div className="bg-[#eef6f4] flex items-center justify-center p-6">
       <div>
         <div className="flex items-start gap-6">
           <div className="flex-shrink-0">

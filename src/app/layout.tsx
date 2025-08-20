@@ -6,6 +6,7 @@ import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/s
 import { AppSidebar } from "@/components/app-sidebar"
 import Footer from "@/components/footer";
 import { AppNavigation } from "@/components/app-navigation";
+import Link from "next/link";
 
 const monsterratFont = Montserrat({
   weight: ['300', '400', '500', '700'],
@@ -41,14 +42,16 @@ export default function RootLayout({
         <SidebarProvider defaultOpen={false}>
           <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2 border-b p-4 md:px-32">
-              <Image
-                src="/images/instar.png"
-                alt="Instar"
-                width={130}
-                height={32}
-                className="w-[128px] h-auto rounded-lg"
-                priority
-              />
+              <Link href="/">
+                <Image
+                  src="/images/instar.png"
+                  alt="Instar"
+                  width={130}
+                  height={32}
+                  className="w-[128px] h-auto rounded-lg"
+                  priority
+                />
+              </Link>
 
               <AppNavigation className="-mr-1 ml-auto hidden md:block z-100" />
               <SidebarTrigger className="-mr-1 ml-auto md:hidden" />

@@ -2,17 +2,18 @@ import Image from "next/image"
 import InstarBadge from "@/icons/instar-badge"
 import InstarMicrosite from "@/icons/instar-microsite"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function Solution() {
   return (
-    <div className="bg-[#fcfcfc] p-4 md:px-32 md:py-8">
-      <h1 className="text-xl md:text-2xl font-bold text-[#212121] mb-4 leading-tight">
+    <div className="py-8 px-4 md:px-32 md:py-16 space-y-10">
+      <h2>
         Pengakuan Nyata atas Integritas dan Keberlanjutan
-      </h1>
+      </h2>
       <div className="md:grid md:grid-cols-2 md:grid-rows-1">
         <div className="mb-16 md:col-start-2">
           <Image
-            src="/images/illustration-1.png"
+            src="/images/illustration-2.png"
             alt="Illustration"
             width={588}
             height={320}
@@ -22,14 +23,13 @@ export default function Solution() {
 
         <div className="md:row-start-1">
           <div className="mb-12">
-            <p className="text-base leading-relaxed max-w-3xl mx-auto">
+            <p>
               Perusahaan yang berhasil mencapai nilai di atas ambang batas (threshold) berhak mendapatkan pengakuan
               sebagai <span className="font-bold text-[#2f5850]">INSTAR Verified Company 2025</span> — simbol komitmen
               nyata terhadap integritas, keberlanjutan, dan tanggung jawab sosial.
             </p>
           </div>
 
-          {/* Features */}
           <div className="space-y-8 mb-12">
             <div className="flex items-start gap-6">
               <div className="flex-shrink-0">
@@ -37,9 +37,9 @@ export default function Solution() {
                   <InstarBadge />
                 </div>
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#212121] mb-2">INSTAR Badge</h3>
-                <p className="text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3>INSTAR Badge</h3>
+                <p>
                   Penilaian badge dilakukan lewat evaluasi dokumen TII & verifikasi ISI via media & Resilience Check.
                 </p>
               </div>
@@ -51,9 +51,9 @@ export default function Solution() {
                   <InstarMicrosite />
                 </div>
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-[#212121] mb-2">Microsite</h3>
-                <p className="text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3>Microsite</h3>
+                <p>
                   Berisi hasil evaluasi perusahaan berdasarkan beragam variabel yang dinilai melalui metode riset dan
                   verifikasi independen.
                 </p>
@@ -61,7 +61,11 @@ export default function Solution() {
             </div>
           </div>
 
-          <Button variant={"outline"}>Lihat Solusi INSTAR</Button>
+          <Button asChild variant={"outline"}>
+            <Link href="/ranking/2025">
+              Lihat Solusi INSTAR
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

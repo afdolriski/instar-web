@@ -76,11 +76,12 @@
   --color-neutral-1000: oklch(0.4926 0 0);
   --color-neutral-1100: oklch(0.3791 0 0);
   --color-neutral-1200: oklch(0.2478 0 0);
+  --color-neutral-bg: oklch(0 0 0);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: var(--color-neutral-200);
   --foreground: var(--color-neutral-1100);
   --card: oklch(1 0 0);
   --card-foreground: var(--color-neutral-1100);
@@ -147,10 +148,25 @@
     @apply border-border outline-ring/50;
     font-family: var(--font-sans);
   }
-  /* html {
-  } */
   body {
     @apply bg-background text-foreground;
+  }
+  h1, h2, h3 {
+    color: var(--color-neutral-bg);
+    font-weight: var(--font-weight-bold);
+  }
+  h2 {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+  }
+  p {
+    font-family: var(--font-secondary);
+    line-height: var(--leading-normal);
+    font-size: var(--text-sm);
+  }
+  ul,ol {
+    list-style: revert;
   }
 }
 
@@ -162,9 +178,6 @@
       &:hover {
         color: var(--color-primary-300);
       }
-    }
-    h1 {
-      color: var(--color-neutral-1200)
     }
   }
 }

@@ -8,19 +8,18 @@ type ProfileCardProps = {
 
 export default function ProfileCard({ title, name, image}: ProfileCardProps) {
   return (
-    <div className="bg-[#ffffff] flex flex-col gap-2">
+    <div className="bg-tertiary-50 flex flex-col">
       <Image
         src={image}
         alt={name}
         width={266}
         height={200}
-        className="w-[266px] h-[200px] mx-auto"
+        className="w-[266px] h-[200px] mx-auto object-contain"
       />
 
-      <div className="py-4 px-4">
-        <h1 className="text-xl font-bold leading-tight">{name}</h1>
-
-        <p className="text-sm leading-relaxed">{title}</p>
+      <div className="p-6 space-y-2 bg-white">
+        <h1>{name}</h1>
+        <p>{title}</p>
       </div>
     </div>
   )
