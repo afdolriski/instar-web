@@ -1,9 +1,9 @@
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="relative bg-linear-to-r from-[#2F5951] to-[#6CB1A4] p-6 md:p-24">
-      <div className="absolute inset-0 bg-black/40"></div>
+    <section className="relative bg-linear-to-r from-[#2F5951] via-[#478579] via-57% to-[#6CB1A4] p-6 md:p-24">
+      {/* <div className="absolute inset-0 bg-black/40"></div> */}
 
       <div className="relative mx-auto">
         <div className="grid items-center">

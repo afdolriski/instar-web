@@ -1,29 +1,44 @@
 import { Separator } from "@/components/ui/separator"
 import Hero from "@/components/ranking/2025/hero"
 import CompanyTable from "@/components/ranking/table"
-import Methodology from "@/components/ranking/methodology"
+import Methodology from "@/components/ranking/2025/methodology"
 import VerificationBanner from "@/components/ranking/2025/verification-banner"
+import { DataTable } from "@/components/ranking/2025/data-table"
+import { pageWrapper, sectionWrapper } from "@/lib/utils"
+import { rank2025Items } from "@/data/rank-2025"
+import { columns } from "@/components/ranking/2025/columns"
+import ExpertList from "@/components/experts"
 
 export default function Page() {
   return (
-    <div className="flex flex-1 flex-col gap-4">
-      <Hero />
-      <div className="bg-[#ffffff] p-4 md:px-32 md:py-10">
-        <div className="mx-auto">
-          <h1 className="text-3xl md:text-3xl font-bold text-[#212121] mb-8 leading-tight">
-            Daftar 300 Perusahaan yang Lolos dari Desk Research oleh TII
-          </h1>
-
-          <div className="space-y-6">
-            <p className="leading-relaxed">
-              Dari total 956 perusahaan yang dianalisis oleh Transparency International Indonesia (TII), hanya 300 yang lolos standar minimum integritas dan keberlanjutan.
-            </p>
+    <div className="flex flex-1 flex-col gap-4 pb-16">
+      <div className="space-y-4 md:space-y-8">
+        <Hero />
+        <div className={sectionWrapper()}>
+          <div className="mx-auto leading-tight">
+            <div className="space-y-4 mx-auto leading-tight">
+              <h2 className="text-2xl font-bold">
+                Hasil Verifikasi Independen oleh Indonesia Strategy Institute (ISI)
+              </h2>
+              <p className="leading-relaxed">
+                Dari total 956 perusahaan yang dianalisis oleh Transparency International Indonesia (TII), hanya 421 yang lolos standar minimum integritas dan keberlanjutan.
+              </p>
+            </div>
           </div>
         </div>
+        <div className={sectionWrapper()}>
+          <DataTable columns={columns} data={rank2025Items} />
+        </div>
+        <div className={sectionWrapper()}>
+          <VerificationBanner />
+        </div>
+        <div className={sectionWrapper()}>
+          <Methodology />
+        </div>
+        <div className={sectionWrapper()}>
+          <ExpertList />
+        </div>
       </div>
-      <CompanyTable />
-      <VerificationBanner />
-      <Methodology />
     </div>
   )
 }

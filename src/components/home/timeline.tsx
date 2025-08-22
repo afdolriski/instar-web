@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import HighlightCard from "../highlight-card"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 import React from "react";
 import Link from "next/link";
 

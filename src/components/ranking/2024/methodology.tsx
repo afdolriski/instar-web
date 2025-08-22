@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 
 export default function Methodology() {
   return (
-    <div className="min-h-screen py-4 px-4 md:w-[80%] md:mx-auto">
+    <div className="md:px-16">
       <div className="">
         <article className="p-8 md:p-12">
           <h1 className="text-2xl font-bold text-center mb-8">Metodologi INSTAR 2024</h1>
 
-          <div className="space-y-6 text-[#424242] leading-relaxed">
+          <div className="space-y-6 leading-relaxed">
             <p>
               Indeks Integritas Bisnis Lestari ini dihimpun dengan menggunakan metodologi yang diadaptasi dari metode
               penilaian TRAC (Transparency In Corporate Reporting) sebuah metode penilaian pelaporan perusahaan yang

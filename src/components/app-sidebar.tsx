@@ -100,10 +100,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       </SidebarMenuButton>
                     )}
                   </SidebarGroupLabel>
-
                   {item.items?.length ? (
                     <CollapsibleContent>
-                      <SidebarMenuSub className="border-none">
+                      <SidebarMenuSub className="border-none list-none">
                         {item.items.map((item) => (
                           <SidebarMenuSubItem key={item.title}>
                             <SidebarMenuSubButton

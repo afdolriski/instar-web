@@ -168,6 +168,12 @@
   ul,ol {
     list-style: revert;
   }
+  li {
+    font-family: var(--font-secondary);
+  }
+  label,input {
+    font-family: var(--font-secondary);
+  }
 }
 
 @layer components {
@@ -179,6 +185,10 @@
         color: var(--color-primary-300);
       }
     }
+  }
+
+  .select {
+    font-family: var(--font-secondary);
   }
 }
 

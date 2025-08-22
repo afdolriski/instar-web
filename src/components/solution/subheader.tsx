@@ -4,24 +4,23 @@ const challanges = [
   {
     title: 'Upaya ESG sulit divalidasi publik',
     description: 'Meski sudah berbagai upaya dilakukan, tapi belum ada standar obyektif untuk menunjukkan komitmen tersebut secara terbuka.',
-    icon: 'icons/integritas.svg',
+    icon: 'icons/check.svg',
   },
   {
     title: 'Kurangnya eksposur di mata investor & masyarakat',
     description: 'Upaya keberlanjutan Anda bisa luput dari perhatian publik bila tidak dikomunikasikan dengan tepat.',
-    icon: 'icons/lingkungan-hidup.svg',
+    icon: 'icons/exposure.svg',
   },{
     title: 'Tekanan transparansi semakin tinggi',
     description: 'Standar dan ekspektasi terhadap keterbukaan ESG terus meningkat, termasuk dari regulator dan mitra bisnis.',
-    icon: 'icons/social.svg',
+    icon: 'icons/pressure.svg',
   },
 ];
 
 export default function SubHeader() {
   return (
-    <div className="bg-[#ffffff] p-4 md:px-32 md:py-10">
+    <div className="p-4 md:px-32">
       <div className="mx-auto">
-        {/* Main Headline */}
         <h1 className="text-3xl md:text-3xl font-bold mb-8 leading-tight">
           Tantangan Utama Perusahaan
         </h1>
@@ -31,7 +30,7 @@ export default function SubHeader() {
         </p>
       </div>
 
-      <div className="md:flex md:space-x-8">
+      <div className="space-y-8 md:flex md:space-x-8">
         {challanges.map((item, key) => (
           <HighlightCard key={key} {...item} />
         ))}

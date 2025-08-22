@@ -1,4 +1,4 @@
-export const items = [
+export const rank2024Items = [
   { 
     name: "Bank Central Asia Tbk.",
     sector: "Financials",
@@ -800,3 +800,6 @@ export const items = [
     social: 36.67
    }
 ]
+
+const filters = [...new Set([...rank2024Items].map(i => i.sector))];
+export const rank2024Filters = ['Semua', ...filters];

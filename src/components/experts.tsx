@@ -25,10 +25,20 @@ const profiles = [
 
 export default function ExpertList() {
   return (
-    <div className="md:grid md:grid-cols-4 gap-4">
-      {profiles.map((item, key) => (
-        <ProfileCard key={key} {...item} />
-      ))}
+    <div className="p-8 bg-tertiary-900 space-y-8 md:p-8">
+      <div className="space-y-4">
+        <h2 className="text-white">Profil Pakar INSTAR 2025</h2>
+        <p className="text-white md:max-w-[60%]">
+          Penilaian dilakukan oleh para pakar dan spesialis bersama para pakar dari bidang HAM dan lingkungan, Dengan
+          pengalaman bertahun-tahun, mereka untuk memastikan hasil yang kredibel dan akurat saat.
+        </p>
+      </div>
+
+      <div className="space-y-6 md:grid md:grid-cols-4 gap-4 md:space-y-0">
+        {profiles.map((item, key) => (
+          <ProfileCard key={key} {...item} />
+        ))}
+      </div>
     </div>
   )
 }

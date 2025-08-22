@@ -38,11 +38,11 @@ const navItems = [
     items: [
       {
         label: 'Event INSTAR 2025',
-        href: '/event/2025',
+        href: '/events/2025',
       },
       {
         label: 'Event INSTAR 2024',
-        href: '/event/2024',
+        href: '/events/2024',
       },
     ]
   },
