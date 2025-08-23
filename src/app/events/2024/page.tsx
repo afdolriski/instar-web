@@ -37,17 +37,6 @@ export default function Page() {
           </div>
 
           <div className="col-start-1 row-start-1 md:col-start-2">
-            {/* <Image
-              src={'/images/event-2024.webp'}
-              alt={'Malam Anugerah'}
-              width={400}
-              height={400}
-              className="w-auto h-auto mx-auto"
-            /> */}
-            {/* <ImageZoom zoomImg={{ src: detailTemplateUrl(thumbnail) }} ZoomContent={ZoomLoader}>
-              <img src={thumbnailTemplateUrl(thumbnail)} alt="Malam anugrah" className="w-full h-auto max-h-[250px] object-cover" />
-            </ImageZoom> */}
-
             <img src={thumbnailTemplateUrl(thumbnail)} alt="Malam anugrah" className="w-[400px] h-auto object-cover mx-auto" />
           </div>
         </div>

@@ -49,12 +49,11 @@ export default function RootLayout({
                   width={130}
                   height={32}
                   className="w-[128px] h-auto rounded-lg"
-                  priority
                 />
               </Link>
 
               <AppNavigation className="-mr-1 ml-auto hidden md:block z-100" />
-              <SidebarTrigger className="-mr-1 ml-auto md:hidden" />
+              <SidebarTrigger className="-mr-1 ml-auto md:hidden cursor-pointer" />
             </header>
             <main>
               {children}

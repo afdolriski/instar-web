@@ -1,4 +1,8 @@
+'use client'
+
 import * as React from "react"
+import { usePathname } from "next/navigation";
+import Image from "next/image"
 
 import {
   Sidebar,
@@ -13,12 +17,13 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, X } from "lucide-react"
 import Link from "next/link"
+import { Button } from "./ui/button";
 
-// This is sample data.
 const data = {
   navMain: [
     {
@@ -63,39 +68,58 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathName = usePathname();
+  const { toggleSidebar } = useSidebar()
+
   return (
-    <Sidebar {...props}>
-      {/* <SidebarHeader>
+    <Sidebar {...props} className="w-full">
+      <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <div className="flex justify-between">
+                <a href="/">
+                  <Image
+                    src="/images/instar.png"
+                    alt="Instar"
+                    width={130}
+                    height={32}
+                    className="w-[128px] h-auto rounded-lg"
+                  />
+                </a>
+                <Button onClick={() => toggleSidebar()} variant="secondary" size="icon" className="bg-neutral-50 shadow-none border-none hover:bg-neutral-50">
+                  <X />
+                </Button>
+              </div>
+            </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
-      </SidebarHeader> */}
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarMenu>
-            {data.navMain.map((item, index) => (
+          <SidebarMenu className="font-secondary">
+            {data.navMain.map((item) => (
               <Collapsible
                 key={item.title}
                 defaultOpen={true}
-                className="group/collapsible"
+                className="group/collapsible text-base"
               >
                 <SidebarMenuItem>
                   <SidebarGroupLabel
                     asChild
-                    className="group/label text-sidebar-foreground hover:text-sidebar-accent-foreground text-sm"
+                    className="group/label text-sidebar-foreground hover:text-primary-500 text-base"
                   >
                     {item.items ? (
-                      <CollapsibleTrigger>
+                      <CollapsibleTrigger className="cursor-pointer">
                         {item.title}{" "}
                         {item.items && (
                           <ChevronRight className="ml-2 transition-transform group-data-[state=open]/collapsible:rotate-90" />
                         )}
                       </CollapsibleTrigger>
                     ): (
-                      <SidebarMenuButton asChild>
+                      <SidebarMenuButton isActive={item.url === pathName} asChild>
                         <Link href={item.url!}>
-                          <div className="font-medium">{item.title}</div>
+                          <div className="font-medium hover:text-primary-500">{item.title}</div>
                         </Link>
                       </SidebarMenuButton>
                     )}
@@ -107,7 +131,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                           <SidebarMenuSubItem key={item.title}>
                             <SidebarMenuSubButton
                               asChild
-                              isActive={false}
+                              className="hover:text-primary-500"
                             >
                               <a href={item.url}>{item.title}</a>
                             </SidebarMenuSubButton>
