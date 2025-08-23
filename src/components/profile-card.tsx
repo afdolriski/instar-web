@@ -17,7 +17,7 @@ export default function ProfileCard({ title, name, image}: ProfileCardProps) {
         className="w-[266px] h-[200px] mx-auto object-contain"
       />
 
-      <div className="p-6 space-y-2 bg-white">
+      <div className="p-6 space-y-2 bg-white h-full">
         <h1>{name}</h1>
         <p>{title}</p>
       </div>
