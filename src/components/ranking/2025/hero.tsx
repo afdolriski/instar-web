@@ -2,10 +2,11 @@ import Image from "next/image"
 
 export default function Hero() {
   return (
-    <section className="relative p-4 md:px-32 bg-tertiary-900">
-      <div className="absolute inset-0 bg-black/40"></div>
+    <section className="relative p-4 md:px-32 md:py-10 bg-tertiary-900 isolate overflow-hidden">
+      <div className="absolute bottom-[-10rem] left-[-20rem] -z-10 h-[40rem] w-[45rem] md:w-[80rem] rotate-150 transform bg-tertiary-800"></div>
+      <div className="absolute right-[-25rem] top-[-15rem] -z-10 h-[50rem] w-[45rem] md:w-[80rem] -rotate-150 transform bg-tertiary-800/30"></div>
       <div className="relative mx-auto">
-        <div className="grid items-start md:grid-cols-10 space-y-8 py-6">
+        <div className="grid items-start md:grid-cols-10 space-y-8">
           <div className="flex justify-center gap-4 md:col-start-8 md:col-end-11 md:grid md:grid-cols-2 md:grid-rows-2">
             <Image
               src="/images/instar-commited.png"

@@ -25,7 +25,9 @@ const profiles = [
 
 export default function ExpertList() {
   return (
-    <div className="p-8 bg-tertiary-900 space-y-8 md:p-8">
+    <div className="p-8 relative bg-tertiary-900 isolate overflow-hidden space-y-8 md:p-8">
+      <div className="absolute bottom-[-10rem] left-[-20rem] -z-10 h-[40rem] w-[25rem] md:w-[80rem] rotate-150 transform bg-tertiary-800"></div>
+      <div className="absolute right-[-25rem] top-[-15rem] -z-10 h-[50rem] w-[25rem] md:w-[80rem] -rotate-150 transform bg-tertiary-800/30"></div>
       <div className="space-y-4">
         <h2 className="text-white">Profil Pakar INSTAR 2025</h2>
         <p className="text-white md:max-w-[60%]">

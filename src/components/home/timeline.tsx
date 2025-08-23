@@ -36,35 +36,35 @@ export default function Timeline() {
       <div>
         <h1 className="text-2xl font-bold mb-8">Timeline INSTAR 2025</h1>
 
-        <div className="relative bg-tertiary-900 md:flex py-8 md:py-0 w-full">
+        <div className="relative bg-tertiary-900 md:flex py-8 md:py-0 w-full bg-[url(/images/timeline-bg.png)] bg-cover bg-no-repeat bg-blend-luminosity md:bg-center">
           <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#d9d9d9] md:hidden"></div>
 
           <TimelineItem>
-            <h3 className="text-white text-xl font-bold mb-2">Executive Briefing</h3>
+            <h3 className="text-white text-xl font-secondary font-bold mb-2">Executive Briefing</h3>
             <p className="text-sm mb-4 opacity-90">Pengenalan awal INSTAR kepada perusahaan hasil seleksi awal</p>
             <p className="text-sm font-medium mb-4">28 Agustus 2025</p>
-            <a href="#" className="inline-flex items-center text-sm underline hover:no-underline">
+            <Link href="/events/2025" className="inline-flex items-center text-sm underline hover:no-underline text-white font-secondary">
               Lihat Executive Briefing
               <ArrowRight className="ml-1 w-4 h-4" />
-            </a>
+            </Link>
           </TimelineItem>
           <TimelineItem>
-            <h3 className="text-white text-xl font-bold mb-2">Verifikasi</h3>
+            <h3 className="text-white text-xl font-secondary font-bold mb-2">Verifikasi</h3>
             <p className="text-sm mb-4 opacity-90">
               Perusahaan dapat menyangah penilaian awal dan hasilnya akan menentukan skor akhir
             </p>
             <p className="text-sm font-medium">1 September - 24 Oktober 2025</p>
           </TimelineItem>
           <TimelineItem>
-            <h3 className="text-white text-xl font-bold mb-2">Forum & Malam Anugerah</h3>
+            <h3 className="text-white text-xl font-secondary font-bold mb-2">Forum & Malam Anugerah</h3>
             <p className="text-sm mb-4 opacity-90">
               Puncak acara INSTAR dengan mengundang perusahaan yang dinilai dan pengumuman skor akhir
             </p>
             <p className="text-sm font-medium mb-4">14 November 2025</p>
-            <a href="#" className="inline-flex items-center text-sm underline hover:no-underline">
+            <Link href="/events/2025?tab=malam-anugrah" className="inline-flex items-center text-sm underline hover:no-underline text-white font-secondary">
               Lihat Forum & Malam Anugerah
               <ArrowRight className="ml-1 w-4 h-4" />
-            </a>
+            </Link>
           </TimelineItem>
         </div>
       </div>

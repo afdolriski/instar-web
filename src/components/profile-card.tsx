@@ -12,7 +12,7 @@ export default function ProfileCard({ title, name, image}: ProfileCardProps) {
       <Image
         src={image}
         alt={name}
-        width={266}
+        width={450}
         height={200}
         className="w-[266px] h-[200px] mx-auto object-contain"
       />
