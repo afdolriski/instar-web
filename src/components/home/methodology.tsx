@@ -6,16 +6,16 @@ const highlights = [
   {
     title: 'Bisnis Berintegritas',
     description: 'Berdasarkan Transparency in Corporate Reporting (TRAC) dari Transparency International.',
-    icon: 'icons/integritas.svg',
+    icon: '/icons/integritas.svg',
   },
   {
     title: 'Lingkungan Hidup',
     description: 'Mengacu pada standar Global Reporting Initiative (GRI) dan Taksonomi Hijau dari OJK.',
-    icon: 'icons/lingkungan-hidup.svg',
+    icon: '/icons/lingkungan-hidup.svg',
   },{
     title: 'Sosial & Hak Asasi Manusia',
     description: 'Berdasarkan UN Guiding Principles on Business and Human Rights (UNGPs).',
-    icon: 'icons/social.svg',
+    icon: '/icons/social.svg',
   },
 ];
 
@@ -23,35 +23,12 @@ const verifications = [
   {
     title: 'Media Monitoring',
     description: 'Menelusuri pemberitaan negatif dari media kredibel untuk mendeteksi praktik greenwashing atau whitewashing.',
-    icon: 'icons/monitoring.svg',
+    icon: '/icons/monitoring.svg',
   },
   {
     title: 'Corporate Resilience Check',
     description: 'Analisis ini mengevaluasi kualitas pelaporan, potensi manipulasi dan fraud, risiko litigasi, serta ketahanan strategi dan keuangan perusahaan.',
-    icon: 'icons/report.svg',
-  },
-];
-
-const profiles = [
-  {
-    name: 'Sonny Mumbunan',
-    title: 'Climate Policy Lab, Faculty of Social Sciences (UIII)',
-    image: '/images/Sonny-Mumbunan.png',
-  },
-  {
-    name: 'Erry Riyana Hardjapamekas',
-    title: 'Ketua Koalisi Anti Korupsi',
-    image: '/images/Erry-Riyana.png',
-  },
-  {
-    name: 'Natalia Soebagjo',
-    title: 'International Council Member, Transparency International',
-    image: '/images/Natalia-Soebagjo.png',
-  },
-  {
-    name: 'Jeffrey S. Siregar',
-    title: 'Executive Director, Komite Nasional Kebijakan Governansi',
-    image: '/images/Jeffrey-Siregar.png',
+    icon: '/icons/report.svg',
   },
 ];
 

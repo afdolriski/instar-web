@@ -98,7 +98,7 @@ export default function Methodology() {
           <p>Pelajari lebih lanjut tentang pendekatan dan indikator yang kami gunakan dalam penilaian.</p>
 
           <Button variant="outline" className="mt-6">
-            Lihat Pertanyaan Lainnya
+            Lihat Metodologi Selengkapnya
           </Button>
         </div>
       </article>
