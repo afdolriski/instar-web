@@ -52,7 +52,7 @@ const data = {
         },
         {
           title: "Event INSTAR 2024",
-          url: "/events/2025",
+          url: "/events/2024",
         },
       ],
     },
@@ -78,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <div className="flex justify-between">
-                <a href="/">
+                <Link onClick={() => toggleSidebar()} href="/">
                   <Image
                     src="/images/instar.png"
                     alt="Instar"
@@ -86,7 +86,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     height={32}
                     className="w-[128px] h-auto rounded-lg"
                   />
-                </a>
+                </Link>
                 <Button onClick={() => toggleSidebar()} variant="secondary" size="icon" className="bg-neutral-50 shadow-none border-none hover:bg-neutral-50">
                   <X />
                 </Button>
@@ -118,7 +118,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       </CollapsibleTrigger>
                     ): (
                       <SidebarMenuButton isActive={item.url === pathName} asChild>
-                        <Link href={item.url!}>
+                        <Link onClick={() => toggleSidebar()} href={item.url!}>
                           <div className="font-medium hover:text-primary-500">{item.title}</div>
                         </Link>
                       </SidebarMenuButton>
@@ -132,8 +132,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             <SidebarMenuSubButton
                               asChild
                               className="hover:text-primary-500"
+                              isActive={item.url === pathName}
                             >
-                              <a href={item.url}>{item.title}</a>
+                              <Link onClick={() => toggleSidebar()} href={item.url}>{item.title}</Link>
                             </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
                         ))}

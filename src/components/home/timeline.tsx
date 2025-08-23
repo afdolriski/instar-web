@@ -36,7 +36,7 @@ export default function Timeline() {
       <div>
         <h1 className="text-2xl font-bold mb-8">Timeline INSTAR 2025</h1>
 
-        <div className="relative bg-tertiary-900 md:flex py-8 md:py-0 w-full bg-[url(/images/timeline-bg.png)] bg-cover bg-no-repeat bg-blend-luminosity md:bg-center">
+        <div className="relative bg-tertiary-900 xl:flex py-8 md:py-0 w-full bg-[url(/images/timeline-bg.png)] bg-cover bg-no-repeat bg-blend-luminosity md:bg-center">
           <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#d9d9d9] md:hidden"></div>
 
           <TimelineItem>
