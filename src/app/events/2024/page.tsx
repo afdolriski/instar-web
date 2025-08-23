@@ -1,19 +1,62 @@
+import Image from "next/image"
 import Hero from "@/components/events/2024/hero"
-import ExecutiveBriefingIntro from "@/components/events/2025/executive-briefing-intro"
-import Location from "@/components/events/2025/location"
 import Gallery from "@/components/gallery"
+import { Calendar, MapPin } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
+import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom"
+import { detailTemplateUrl, thumbnailTemplateUrl } from "@/lib/utils"
+import { ZoomLoader } from "@/components/zoom-loader"
+
+const wrapper = () => 'px-4 py-8 md:px-32 md:py-10 space-y-8';
+const thumbnail = 'YOU_9038.jpg';
 
 export default function Page() {
   return (
-    <div className="flex flex-1 flex-col gap-4">
+    <div className="flex flex-1 flex-col gap-8">
       <Hero />
-      <div className="bg-[#ffffff] p-4 md:px-32 md:py-10">
-        <ExecutiveBriefingIntro />
-        <div className="space-y-10">
-          <h1 className="text-2xl font-bold px-8 py-6">Lokasi</h1>
-          <Gallery />
-          <Location />
+      <div className={wrapper()}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold leading-tight">Malam Anugerah</h2>
+
+            <p className="text-medium leading-relaxed max-w-3xl">
+              Puncak acara INSTAR dengan mengundang perusahaan yang dinilai dan pengumuman skor akhir.
+            </p>
+
+            <div className="space-y-3 pt-4">
+              <div className="flex items-start gap-3">
+                <Calendar className="w-5 h-5" />
+                <span className="text-base font-bold">10 Desember 2024</span>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5" />
+                <span className="text-base font-bold">Salihara Arts Center, Jakarta Selatan</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-start-1 row-start-1 md:col-start-2">
+            {/* <Image
+              src={'/images/event-2024.webp'}
+              alt={'Malam Anugerah'}
+              width={400}
+              height={400}
+              className="w-auto h-auto mx-auto"
+            /> */}
+            {/* <ImageZoom zoomImg={{ src: detailTemplateUrl(thumbnail) }} ZoomContent={ZoomLoader}>
+              <img src={thumbnailTemplateUrl(thumbnail)} alt="Malam anugrah" className="w-full h-auto max-h-[250px] object-cover" />
+            </ImageZoom> */}
+
+            <img src={thumbnailTemplateUrl(thumbnail)} alt="Malam anugrah" className="w-[400px] h-auto object-cover mx-auto" />
+          </div>
         </div>
+      </div>
+
+      <Separator />
+
+      <div className={wrapper()}>
+        <Gallery />
       </div>
     </div>
   )

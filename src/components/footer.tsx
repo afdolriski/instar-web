@@ -1,27 +1,29 @@
 import Image from "next/image"
-import { MapPin, Phone, Mail } from "lucide-react"
-import { Separator } from "./ui/separator"
+import Link from "next/link"
+import { MapPin, Mail } from "lucide-react"
+import { WhatsappIcon } from "@/icons/whatsapp"
+import { WA_NUMBER } from "@/config/app"
 
-const items = [
+const links = [
   {
     label: 'Peringkat INSTAR',
-    href: '#'
+    href: '/ranking/2025'
   },
   {
     label: 'Event',
-    href: '#'
+    href: '/events/2025'
   },
   {
     label: 'Solusi',
-    href: '#'
+    href: '/solution'
   },
   {
     label: 'Tentang',
-    href: '#'
+    href: '/about'
   },
   {
     label: 'FAQ',
-    href: '#'
+    href: '/faq'
   },
 ]
 
@@ -31,10 +33,10 @@ export default function Footer() {
       <div className="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2 md:auto-rows-2 items-start">
         <div className="space-y-4 md:col-start-2">
           <nav className="space-y-4 md:flex md:gap-5 md:justify-end">
-            {items.map(item => (
-              <a key={item.label} href="#" className="block text-sm hover:text-[#194793] transition-colors">
+            {links.map(item => (
+              <Link href={item.href} className="block text-sm transition-colors" key={item.label}>
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
@@ -97,10 +99,10 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-row text-sm justify-between md:space-x-4">
-          <div className="flex items-center space-x-3">
-            <Phone className="w-5 h-5 " />
+          <a className="flex items-center space-x-3" href={`https://wa.me/${WA_NUMBER}`} target="_blank">
+            <WhatsappIcon className="w-5 h-5 " />
             <span className="text-sm">0851-5661-9434</span>
-          </div>
+          </a>
 
           <div className="flex items-center space-x-3">
             <Mail className="w-5 h-5 " />

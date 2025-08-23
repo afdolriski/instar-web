@@ -1,36 +1,36 @@
+'use client'
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ImageZoom } from "./ui/shadcn-io/image-zoom";
+import { detailTemplateUrl, thumbnailTemplateUrl } from "@/lib/utils";
+import { galeryImages } from "@/data/galery";
+import { ZoomLoader } from "./zoom-loader";
+
 export default function Gallery() {
+  const [limit, setLimit] = useState(9);
+
+  const increment = 9;
   return (
-    <div className="min-h-screen bg-[#eeeeee] p-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Gallery Header */}
-        <h1 className="text-[#404040] text-3xl font-semibold mb-8">Gallery</h1>
-
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-3 gap-6 mb-12">
-          {/* First image - actual photo */}
-          <div className="aspect-[4/3] bg-white rounded-lg overflow-hidden shadow-sm">
-            <img
-              src="/blue-conference-stage.png"
-              alt="Conference stage with blue branding"
-              className="w-full h-full object-cover"
-            />
+    <div className="mx-auto">
+      <h1 className="text-3xl font-semibold mb-8">Gallery</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {galeryImages.slice(0, limit).map((image) => (
+          <div key={image} className="shadow-sm">
+            <ImageZoom zoomImg={{ src: detailTemplateUrl(image) }} ZoomContent={ZoomLoader}>
+              <img src={thumbnailTemplateUrl(image)} alt="Malam anugrah" className="w-full h-auto max-h-[250px] object-cover" />
+            </ImageZoom>
           </div>
-
-          {/* Placeholder images */}
-          {Array.from({ length: 8 }).map((_, index) => (
-            <div key={index} className="aspect-[4/3] bg-white rounded-lg overflow-hidden shadow-sm">
-              <img src="/placeholder-image.png" alt="Placeholder image" className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </div>
-
-        {/* Load More Button */}
-        <div className="flex justify-center">
-          <button className="bg-[#194793] text-white px-12 py-3 rounded-md font-medium hover:bg-[#194793]/90 transition-colors">
-            Load More
-          </button>
-        </div>
+        ))}
       </div>
+
+      {limit <= galeryImages.length && (
+        <div className="flex justify-center w-full">
+          <Button className="w-full max-w-xl mx-auto cursor-pointer" onClick={() => setLimit(limit + increment)}>
+            Load more
+          </Button>
+        </div>
+      )}
     </div>
   )
 }

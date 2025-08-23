@@ -6,7 +6,7 @@ export default function TempoPromo() {
     <div className={sectionWrapper()}>
       <div className="mx-auto">
         <div className="mb-8">
-          <h1 className="text-2xl md:text-4xl font-bold mb-2">Raih Bonus Eksklusif dari Tempo</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">Raih Bonus Eksklusif dari Tempo</h1>
           <p className="text-base mx-auto">
             Raih bonus eksklusif sebagai bentuk apresiasi atas partisipasi perusahaan dalam memilih solusi INSTAR.
           </p>
@@ -26,7 +26,7 @@ export default function TempoPromo() {
                 />
               </div>
             </div>
-            <h2 className="text-xl md:text-3xl font-bold mb-4">Tempo Data Premium</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-2">Tempo Data Premium</h2>
             <p className="text-base">
               Dapatkan langganan Tempo Digital selama 1 tahun untuk 8 akun.
             </p>
@@ -45,7 +45,7 @@ export default function TempoPromo() {
                 />
               </div>
             </div>
-            <h2 className="text-xl md:text-3xl font-bold mb-4">Langganan Tempo Media</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-2">Langganan Tempo Media</h2>
             <p className="text-base">
               Akses eksklusif ke ribuan data riset bisnis, statistik, arsip media sejak 1971, dan dokumentasi terpercaya
               dari Tempo.

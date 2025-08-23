@@ -48,19 +48,19 @@ export default function EventSchedule() {
   ]
 
   return (
-    <div className="mx-auto p-8 bg-[#fcfcfc]">
-      <h1 className="text-3xl font-semibold text-[#000000] mb-8">Rundown Acara</h1>
+    <div className="mx-auto">
+      <h1 className="text-xl mb-8">Rundown Acara</h1>
 
-      <div className="space-y-1">
+      <div className="space-y-4">
         {scheduleItems.map((item, index) => (
           <div
             key={index}
-            className={`flex items-center p-4 ${
-              item.highlighted ? "bg-[#2f5951] text-white" : "bg-[#eeeeee] text-[#000000]"
+            className={`flex flex-col p-2 md:p-4 space-y-2 md:space-y-0 md:flex-row md:items-center ${
+              item.highlighted ? "bg-tertiary-800 text-white" : "bg-neutral-400 text-neutral-950"
             }`}
           >
-            <div className="w-32 flex-shrink-0 text-sm font-medium">{item.time}</div>
-            <div className="flex-1 text-sm font-medium">{item.title}</div>
+            <div className="w-32 flex-shrink-0 text-sm font-secondary">{item.time}</div>
+            <div className="flex-1 text-sm font-semibold">{item.title}</div>
           </div>
         ))}
       </div>

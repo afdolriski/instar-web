@@ -14,7 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { FormInput, Input } from "@/components/ui/input"
+import { FormInput } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label";
 import {
@@ -24,8 +24,13 @@ import {
 } from "@/components/ui/popover"
 import { ChevronDownIcon } from "lucide-react";
 import { Calendar } from "./ui/calendar";
+import { FormSuccessDialog } from "./solution/form-success";
+import { format } from "date-fns";
+import { FormErrorDialog } from "./solution/form-error";
 
 const defaultTimePreference = "option-two";
+const url = 'https://formspree.io/f/xeozybwa';
+// const url = 'https://formkeep.com/p/4887cf29f9c26684c5c7c587a97c3ed4';
 
 const formSchema = z.object({
   full_name: z.string().min(1, "Nama lengkap tidak boleh kosong"),
@@ -36,23 +41,30 @@ const formSchema = z.object({
   }),
   whatsapp: z.string().min(1, "No whatsapp tidak boleh kosong"),
   time_preference: z.string(),
-  date: z.date(),
-  time: z.string(),
-}).superRefine((data, ctx) => {
-  const { time_preference } = ctx.value;
-
-  if (time_preference !== defaultTimePreference && !data.date) {
-    ctx.addIssue({
+  date: z.date().optional(),
+  time: z.string().optional(),
+})
+.superRefine(({ time_preference, date, time }, refinementContext) => {
+  if (time_preference !== defaultTimePreference && !date) {
+    refinementContext.addIssue({
       code: "custom",
-      message: "custom message",
-      path: ["date"],
+      message: "Tanggal tidak boleh kosong",
+      path: ['date'],
+    });
+  }
+  if (time_preference !== defaultTimePreference && !time) {
+    refinementContext.addIssue({
+      code: "custom",
+      message: "Waktu preferensi tidak boleh kosong",
+      path: ['time'],
     });
   }
 });
 
 export default function ContactForm() {
   const [open, setOpen] = React.useState(false)
-  const [date, setDate] = React.useState<Date | undefined>(undefined)
+  const [openDialog, setOpenDialog] = React.useState(false)
+  const [openErrorDialog, setOpenErrorDialog] = React.useState(false)
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,12 +76,37 @@ export default function ContactForm() {
       whatsapp: "",
       time_preference: "option-two",
       date: undefined,
-      time: undefined,
+      time: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const data = {
+      full_name: values.full_name,
+      job_title: values.job_title,
+      company: values.company,
+      email: values.email,
+      whatsapp: values.whatsapp,
+      time_preference: values.time_preference !== defaultTimePreference ?
+        `${format(values.date!, "dd/MM/yyyy")} ${values.time}` : 'Tidak ada'
+    }
+
+    return fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Accept': 'application/javascript',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setOpenDialog(true);
+        form.reset();
+      })
+      .catch((error) => {
+        setOpenErrorDialog(true);
+      });
   }
 
   const showTimePicker = form.watch("time_preference") !== "option-two";
@@ -77,7 +114,7 @@ export default function ContactForm() {
   const { errors } = form.formState;
 
   return (
-    <div className={sectionWrapper()}>
+    <div className={sectionWrapper()} id="contact">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Left Section */}
         <div className="space-y-4">
@@ -120,7 +157,6 @@ export default function ContactForm() {
                 />
               </div>
 
-              {/* Second Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
@@ -192,54 +228,74 @@ export default function ContactForm() {
                   )}
                 />
               </div>
-              
+
               {showTimePicker && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-3 w-full">
-                    <Label htmlFor="date-picker" className="px-1">
-                      Date
-                    </Label>
-                    <Popover open={open} onOpenChange={setOpen}>
-                      <PopoverTrigger asChild className="font-secondary">
-                        <Button
-                          variant="outline"
-                          id="date-picker"
-                          className="w-full justify-between font-normal"
-                        >
-                          {date ? date.toLocaleDateString() : "Select date"}
-                          <ChevronDownIcon />
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto overflow-hidden p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={date}
-                          captionLayout="dropdown"
-                          className="font-secondary"
-                          onSelect={(date) => {
-                            setDate(date)
-                            setOpen(false)
-                          }}
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <Label htmlFor="time-picker" className="px-1">
-                      Time
-                    </Label>
-                    <Input
-                      type="time"
-                      id="time-picker"
-                      step="1"
-                      defaultValue="10:30:00"
-                      className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none font-secondary"
-                    />
-                  </div>
+                  <FormField
+                    control={form.control}
+                    name="date"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Tanggal</FormLabel>
+                        <FormControl>
+                          <Popover open={open} onOpenChange={setOpen}>
+                            <PopoverTrigger asChild className="font-secondary">
+                              <Button
+                                variant="outline"
+                                id="date-picker"
+                                className="w-full justify-between font-normal font-secondary"
+                              >
+                                {field.value ? (
+                                  format(field.value, "dd/MM/yyyy")
+                                ) : (
+                                  <span className="font-secondary">Pilih tanggal</span>
+                                )}
+                                <ChevronDownIcon />
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto overflow-hidden p-0 font-secondary" align="start">
+                              <Calendar
+                                mode="single"
+                                selected={field.value}
+                                onSelect={field.onChange}
+                                disabled={(date) =>
+                                  date < new Date()
+                                }
+                                captionLayout="dropdown"
+                                className="font-secondary"
+                              />
+                            </PopoverContent>
+                          </Popover>
+                        </FormControl>
+                        {errors.date && <FormMessage>{errors.date.message}</FormMessage>}
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="time"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Waktu Preferensi</FormLabel>
+                        <FormControl>
+                          <FormInput 
+                            placeholder="Pilih waktu preferensi (WIB)" 
+                            className="w-full rounded-none p-4 bg-white placeholder-neutral-700 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500" 
+                            type="time"
+                            id="time-picker"
+                            step="1"
+                            {...field} 
+                          />
+                        </FormControl>
+                        {errors.time && <FormMessage>{errors.time.message}</FormMessage>}
+                      </FormItem>
+                    )}
+                  />
                 </div>
               )}
 
-              <Button type="submit" className="w-full md:text-lg md:p-6 font-secondary">
+              <Button disabled={form.formState.isSubmitting} type="submit" className="w-full md:text-lg md:p-6 font-secondary cursor-pointer">
                 Kirim
               </Button>
               <p className="text-sm font-medium leading-relaxed">
@@ -248,11 +304,10 @@ export default function ContactForm() {
               </p>
             </form>
           </Form>
-
-
-
         </div>
       </div>
+      <FormSuccessDialog open={openDialog} close={() => setOpenDialog(false)} />
+      <FormErrorDialog open={openErrorDialog} close={() => setOpenErrorDialog(false)} />
     </div>
   )
 }

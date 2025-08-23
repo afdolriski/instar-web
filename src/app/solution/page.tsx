@@ -1,6 +1,4 @@
 import Hero from "@/components/solution/hero"
-import CompanyTable from "@/components/ranking/table"
-import VerificationBanner from "@/components/ranking/2025/verification-banner"
 import SubHeader from "@/components/solution/subheader"
 import Solutions from "@/components/solution/solutions"
 import TempoPromo from "@/components/solution/tempo-promo"
@@ -19,9 +17,6 @@ export default function Page() {
         <Separator />
         <ContactForm />
       </div>
-      {/* <CompanyTable />
-      <VerificationBanner />
-      <Methodology /> */}
     </div>
   )
 }

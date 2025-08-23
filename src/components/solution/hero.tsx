@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -17,7 +18,11 @@ export default function Hero() {
               Buktikan komitmen ESG Anda secara kredibel, tingkatkan visibilitas di mata publik dan investor, serta penuhi tuntutan transparansi dengan Solusi INSTAR.
             </p>
 
-            <Button>Hubungi Kami</Button>
+            <Button asChild>
+              <Link href="#contact">
+                Hubungi Kami
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

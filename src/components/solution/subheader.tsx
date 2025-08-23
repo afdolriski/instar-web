@@ -30,7 +30,7 @@ export default function SubHeader() {
         </p>
       </div>
 
-      <div className="space-y-8 md:flex md:space-x-8">
+      <div className="space-y-6 md:flex justify-evenly md:space-x-8 md:space-y-0">
         {challanges.map((item, key) => (
           <HighlightCard key={key} {...item} />
         ))}
