@@ -1,11 +1,8 @@
-import Image from "next/image"
 import Hero from "@/components/events/2024/hero"
 import Gallery from "@/components/gallery"
 import { Calendar, MapPin } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
-import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom"
-import { detailTemplateUrl, thumbnailTemplateUrl } from "@/lib/utils"
-import { ZoomLoader } from "@/components/zoom-loader"
+import Thumbnail from "@/components/events/2024/thumbnail"
 
 const wrapper = () => 'px-4 py-8 md:px-32 md:py-10 space-y-8';
 const thumbnail = 'YOU_9038.jpg';
@@ -37,7 +34,7 @@ export default function Page() {
           </div>
 
           <div className="col-start-1 row-start-1 md:col-start-2">
-            <img src={thumbnailTemplateUrl(thumbnail)} alt="Malam anugrah" className="w-[400px] h-auto object-cover mx-auto" />
+            <Thumbnail />
           </div>
         </div>
       </div>
