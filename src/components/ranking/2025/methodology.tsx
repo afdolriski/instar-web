@@ -6,7 +6,7 @@ export default function Methodology() {
       <article className="p-8 md:p-12">
         <h1 className="text-2xl font-bold text-center mb-8">Metodologi INSTAR 2025</h1>
 
-        <div className="space-y-6 text-[#424242] leading-relaxed">
+        <div className="space-y-6 leading-relaxed">
           <p>
             Indeks Integritas Bisnis Lestari ini dihimpun dengan menggunakan metodologi yang diadaptasi dari metode
             penilaian TRAC (Transparency In Corporate Reporting) sebuah metode penilaian pelaporan perusahaan yang
@@ -48,8 +48,8 @@ export default function Methodology() {
           <ul className="space-y-4 ml-6">
             <li className="flex items-start">
               <span className="text-[#212121] mr-2">•</span>
-              <div>
-                <strong className="text-[#212121]">Disclosure Quality</strong> — Untuk menilai potensi manipulasi
+              <div className="font-secondary">
+                Disclosure Quality — Untuk menilai potensi manipulasi
                 laporan keuangan. Jika Disclosure Quality bagus maka berkurang kemungkinan perusahaan untuk melakukan
                 manipulasi laporan keuangan (Beneish, 1999).
               </div>
@@ -57,8 +57,8 @@ export default function Methodology() {
 
             <li className="flex items-start">
               <span className="text-[#212121] mr-2">•</span>
-              <div>
-                <strong className="text-[#212121]">Compliance Exposure</strong> — Untuk menilai potensi risiko
+              <div className="font-secondary">
+                Compliance Exposure — Untuk menilai potensi risiko
                 litigasi yang akan dihadapi perusahaan. Jika Compliance Exposure bagus maka berkurang kemungkinan
                 perusahaan untuk menghadapi gugatan hukum (Karpoff, 2017 dan Dyck, 1996)
               </div>
@@ -66,8 +66,8 @@ export default function Methodology() {
 
             <li className="flex items-start">
               <span className="text-[#212121] mr-2">•</span>
-              <div>
-                <strong className="text-[#212121]">Ethic Institution</strong> — Untuk menilai potensi terjadinya fraud
+              <div className="font-secondary">
+                Ethic Institution — Untuk menilai potensi terjadinya fraud
                 atau perilaku tidak etis lainnya dalam perusahaan. Jika ethic institution bagus maka berkurang
                 kemungkinan perusahaan untuk melakukan berbagai bentuk kecurangan fraud atau perilaku tidak etis lain
                 (Cressey, 1953 dan Skousen, 2009).
@@ -76,8 +76,8 @@ export default function Methodology() {
 
             <li className="flex items-start">
               <span className="text-[#212121] mr-2">•</span>
-              <div>
-                <strong className="text-[#212121]">Strategy Readiness</strong> — Untuk menilai kapasitas perusahaan
+              <div className="font-secondary">
+                Strategy Readiness — Untuk menilai kapasitas perusahaan
                 untuk mencapai tujuan strategis perusahaan. Jika strategic readiness bagus maka besar kemungkinan
                 perusahaan untuk mencapai visi misi perusahaan dan menjadi market leader di industrinya (Miles & Snow,
                 1978 dan Porter, 1998)
@@ -86,8 +86,8 @@ export default function Methodology() {
 
             <li className="flex items-start">
               <span className="text-[#212121] mr-2">•</span>
-              <div>
-                <strong className="text-[#212121]">Financial Resilience</strong> — Untuk menilai risiko keamanan
+              <div className="font-secondary">
+                Financial Resilience — Untuk menilai risiko keamanan
                 financial perusahaan hingga risiko kebangkrutan. Jika financial resilience bagus maka perusahaan untuk
                 bertahan dan pulih dari guncangan finansial. Perusahaan dengan financial resilience yang kuat
                 cenderung memiliki lebih banyak sumber daya untuk mengatasi masalah keuangan (Altman, 1968)
@@ -97,8 +97,8 @@ export default function Methodology() {
 
           <p>Pelajari lebih lanjut tentang pendekatan dan indikator yang kami gunakan dalam penilaian.</p>
 
-          <Button variant="outline" className="mt-6">
-            Lihat Metodologi Selengkapnya
+          <Button variant={'outline'} asChild>
+            <a href="https://drive.google.com/file/d/1gttKsLrhE6EEzVxn3qTn2kT8YzTKDDag/view" target="_blank">Lihat Metodologi Selengkapnya</a>
           </Button>
         </div>
       </article>

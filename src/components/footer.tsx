@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:justify-between border-t pt-4">
+      <div className="flex flex-col md:flex-row md:justify-between border-t-1 border-neutral-700 pt-4">
         <div className="flex items-start justify-center space-x-3 mb-4 md:mb-0">
           <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
           <p className="text-sm">Gedung Tempo, Jl. Palmerah Barat No. 8, Jakarta Selatan 12210</p>

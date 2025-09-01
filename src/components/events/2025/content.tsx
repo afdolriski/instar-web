@@ -25,7 +25,7 @@ export default function EventContent() {
 
   return (
     <Tabs defaultValue={initialTab} className="gap-0">
-      <TabsList className="w-full text-primary py-8 md:py-4">
+      <TabsList className="w-full text-primary py-8 md:py-4 sticky top-0 z-100">
         <TabsTrigger value="executive-briefing" className="cursor-pointer hover:text-primary-500 rounded-none w-[50%] flex flex-col md:flex-row py-8 md:py-4">
           <span>Executive Briefing</span>
           <span>(25 Agustus 2025)</span>

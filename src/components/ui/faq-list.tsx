@@ -14,9 +14,9 @@ interface FaqItem {
 export function FaqList({ items }: { items: FaqItem[] }) {
   return (
     <Accordion
-      type="multiple"
+      type="single"
       className="w-full"
-      defaultValue={['0']}
+      defaultValue={'0'}
     >
       {items.map((item, key) => (
         <AccordionItem value={key.toString()} key={key}>

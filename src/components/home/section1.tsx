@@ -9,8 +9,8 @@ export default function Section1() {
   return (
     <div className="py-8 px-4 md:px-32 md:py-16">
       <div className="mx-auto space-y-8 md:space-y-12">
-        <div className="space-y-4">
-          <h2 className="text-3xl md:text-3xl font-bold leading-tight">
+        <div className="space-y-4 md:w-[75%]">
+          <h2 className="">
             Wujudkan Bisnis yang Terpercaya dengan INSTAR
           </h2>
 
@@ -31,7 +31,7 @@ export default function Section1() {
 
         <div className="border rounded-lg p-6 relative">
           <h2 className="font-semibold mb-6">
-            300 Perusahaan Yang Lolos Desk Research INSTAR 2025
+            421 Perusahaan Yang Lolos Desk Research INSTAR 2025
           </h2>
 
           <ImageZoomClient>
@@ -48,7 +48,7 @@ export default function Section1() {
 
         <div className="space-y-4">
           <p className="font-medium">
-            Telusuri 300+ perusahaan yang lolos standar minimum integritas INSTAR.
+            Telusuri 479 perusahaan yang lolos standar minimum integritas INSTAR.
           </p>
 
           <Button asChild variant={'outline'}>

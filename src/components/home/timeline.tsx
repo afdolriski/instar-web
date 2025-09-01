@@ -3,6 +3,7 @@ import HighlightCard from "../highlight-card"
 import { Button } from "@/components/ui/button"
 import React from "react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const collabs = [
   {
@@ -17,13 +18,13 @@ const collabs = [
   },
 ];
 
-function TimelineItem({ children }: { children?: React.ReactNode }) {
+function TimelineItem({ children, className, position }: { children?: React.ReactNode; className?: string; position?: string }) {
   return (
-    <div className="relative md:p-8 w-full">
-      <div className="absolute left-2.5 w-4 h-4 bg-[#fcfcfc] border-4 rounded-full md:top-4"></div>
-      <div className="absolute top-1.5 w-full h-0.5 bg-[#fcfcfc] md:left-0 md:top-6"></div>
+    <div className={cn("relative md:p-8 w-full", className)}>
+      <div className={cn("absolute left-2.5 w-4 h-4 bg-[#fcfcfc] border-4 rounded-full md:-bottom-2", position === 'bottom' ? 'md:-top-2' : '')}></div>
+      <div className="absolute top-1.5 w-full h-0.5 bg-[#fcfcfc] md:left-0 md:hidden"></div>
       <div className="absolute top-1.5 left-4 w-0.5 h-full bg-[#fcfcfc] invisible md:top-0 md:visible"></div>
-      <div className="ml-12 text-white p-6 rounded-lg">
+      <div className="ml-12 md:ml-4 text-white p-6 md:p-0 rounded-lg">
         {children}
       </div>
     </div>
@@ -32,14 +33,14 @@ function TimelineItem({ children }: { children?: React.ReactNode }) {
 
 export default function Timeline() {
   return (
-    <div className="py-8 px-4 md:px-32 md:py-16 space-y-10">
+    <div className="py-8 px-4 md:px-32 md:py-16 space-y-10" id="timeline">
       <div>
         <h1 className="text-2xl font-bold mb-8">Timeline INSTAR 2025</h1>
 
-        <div className="relative bg-tertiary-900 xl:flex py-8 md:py-0 w-full bg-[url(/images/timeline-bg.png)] bg-cover bg-no-repeat bg-blend-luminosity md:bg-center">
-          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#d9d9d9] md:hidden"></div>
+        <div className="relative bg-tertiary-900 xl:grid grid-cols-12 grid-flow-row auto-rows-fr py-8 md:py-0 w-full bg-[url(/images/timeline-bg.png)] bg-cover bg-no-repeat bg-blend-luminosity md:bg-center">
+          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#d9d9d9] md:left-0 md:top-[50%] md:w-full md:h-[1px]"></div>
 
-          <TimelineItem>
+          <TimelineItem className="relative row-start-1 col-start-2 col-end-6 md:pb-4">
             <h3 className="text-white text-xl font-secondary font-bold mb-2">Executive Briefing</h3>
             <p className="text-sm mb-4 opacity-90">Pengenalan awal INSTAR kepada perusahaan hasil seleksi awal</p>
             <p className="text-sm font-medium mb-4">28 Agustus 2025</p>
@@ -48,14 +49,14 @@ export default function Timeline() {
               <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
           </TimelineItem>
-          <TimelineItem>
+          <TimelineItem className="relative row-start-2 col-start-5 col-end-9" position="bottom">
             <h3 className="text-white text-xl font-secondary font-bold mb-2">Verifikasi</h3>
             <p className="text-sm mb-4 opacity-90">
               Perusahaan dapat menyangah penilaian awal dan hasilnya akan menentukan skor akhir
             </p>
             <p className="text-sm font-medium">1 September - 24 Oktober 2025</p>
           </TimelineItem>
-          <TimelineItem>
+          <TimelineItem className="relative row-start-1 col-start-7 col-end-12 md:pb-0">
             <h3 className="text-white text-xl font-secondary font-bold mb-2">Forum & Malam Anugerah</h3>
             <p className="text-sm mb-4 opacity-90">
               Puncak acara INSTAR dengan mengundang perusahaan yang dinilai dan pengumuman skor akhir

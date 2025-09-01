@@ -16,11 +16,6 @@ type Companies = {
 
 export const columns: ColumnDef<Companies>[] = [
   {
-    id: "id",
-    header: "No.",
-    cell: ({ row }) => row.index + 1,
-  },
-  {
     accessorKey: "code",
     header: ({ column }) => {
       return (
@@ -70,25 +65,25 @@ export const columns: ColumnDef<Companies>[] = [
     accessorKey: "sub_sector",
     header: "Sub Sektor",
   },
-  {
-    accessorKey: "score",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          className="font-medium"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Indeks Keseluruhan
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => {
-      const item = row.original
-      return (
-        <div className="pl-4">{item.score}</div>
-      )
-    },
-  },
+  // {
+  //   accessorKey: "score",
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         className="font-medium"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //       >
+  //         Indeks Keseluruhan
+  //         <ArrowUpDown className="ml-2 h-4 w-4" />
+  //       </Button>
+  //     )
+  //   },
+  //   cell: ({ row }) => {
+  //     const item = row.original
+  //     return (
+  //       <div className="pl-4">{item.score}</div>
+  //     )
+  //   },
+  // },
 ]

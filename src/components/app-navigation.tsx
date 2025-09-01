@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu"
+import { usePathname } from "next/navigation"
 
 const navItems = [
   {
@@ -20,7 +21,7 @@ const navItems = [
   },
   {
     label: 'Peringkat INSTAR',
-    href: '#',
+    href: '/ranking',
     items: [
       {
         label: 'Peringkat INSTAR 2025',
@@ -34,7 +35,7 @@ const navItems = [
   },
   {
     label: 'Event',
-    href: '#',
+    href: '/events',
     items: [
       {
         label: 'Event INSTAR 2025',
@@ -57,20 +58,24 @@ const navItems = [
 ]
 
 export function AppNavigation({ className }: React.ComponentProps<"div">) {
+  const pathname = usePathname();
+  
   return (
     <NavigationMenu viewport={false} className={className}>
       <NavigationMenuList>
         {navItems.map((item, key) => (
           item.items ? (
             <NavigationMenuItem key={key}>
-              <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+              <NavigationMenuTrigger className={pathname.startsWith(item.href) ? 'font-bold text-primary' : ''}>
+                <div>{item.label}</div>
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-auto gap-4">
                   <li>
                     {item.items?.map((child, key) => (
-                      <NavigationMenuLink asChild key={key}>
+                      <NavigationMenuLink asChild key={key} data-active={pathname === child.href}>
                         <Link href={child.href}>
-                          <div className="font-medium">{child.label}</div>
+                          {child.label}
                         </Link>
                       </NavigationMenuLink>
                     ))}
@@ -80,7 +85,7 @@ export function AppNavigation({ className }: React.ComponentProps<"div">) {
             </NavigationMenuItem>
           ) : (
             <NavigationMenuItem key={key}>
-              <NavigationMenuLink asChild>
+              <NavigationMenuLink asChild data-active={pathname === item.href}>
                 <Link href={item.href}>{item.label}</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>

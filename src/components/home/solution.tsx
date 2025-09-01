@@ -62,7 +62,7 @@ export default function Solution() {
           </div>
 
           <Button asChild variant={"outline"}>
-            <Link href="/ranking/2025">
+            <Link href="/solution">
               Lihat Solusi INSTAR
             </Link>
           </Button>

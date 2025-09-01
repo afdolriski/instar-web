@@ -18,7 +18,7 @@ export default function Page() {
           <div className="mx-auto leading-tight">
             <div className="space-y-4 mx-auto leading-tight">
               <h2 className="text-2xl font-bold">
-                Hasil Verifikasi Independen oleh Indonesia Strategy Institute (ISI)
+                Daftar 421 Perusahaan yang Lolos dari Desk Research oleh TII
               </h2>
               <p className="leading-relaxed">
                 Dari total 956 perusahaan yang dianalisis oleh Transparency International Indonesia (TII), hanya 421 yang lolos standar minimum integritas dan keberlanjutan.
