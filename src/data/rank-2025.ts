@@ -886,7 +886,16 @@ export const rank2025Items = [
 ]
 
 const sectorFilters = [...new Set([...rank2025Items].map(i => i.sector))];
-const subSectorFilters = [...new Set([...rank2025Items].map(i => i.sub_sector))];
 
-export const rank2024SectorFilters = ['Semua', ...sectorFilters];
-export const rank2024SubSectorFilters = ['Semua', ...subSectorFilters];
+const createSubSectors = () => {
+  return sectorFilters.map(sector => {
+    const items = rank2025Items.filter(item => item.sector === sector).map(item => item.sub_sector);
+    return {
+      sector,
+      sub_sectors: new Set(items.map(i => i).sort())
+    }
+  })
+}
+
+export const rank2025SectorFilters = ['Semua', ...sectorFilters.sort()];
+export const rank2025SubSectorFilters = [...createSubSectors()];

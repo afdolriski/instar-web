@@ -28,9 +28,11 @@ export default function VerificationBanner() {
             </p>
 
             <p className="font-medium">
-              Daftarkan perusahaan Anda sekarang untuk proses
-              <br />
-              verifikasi mendalam kami!
+              <strong>
+                Daftarkan perusahaan Anda sekarang untuk proses
+                <br />
+                verifikasi mendalam kami!
+              </strong>
             </p>
           </div>
 

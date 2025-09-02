@@ -73,7 +73,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar {...props} className="w-full">
-      <SidebarHeader>
+      <SidebarHeader className="border-b border-neutral-600">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
@@ -97,41 +97,41 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarMenu className="font-secondary">
+          <SidebarMenu className="">
             {data.navMain.map((item) => (
               <Collapsible
                 key={item.title}
                 defaultOpen={true}
                 className="group/collapsible text-base"
               >
-                <SidebarMenuItem>
+                <SidebarMenuItem className="font-sans">
                   <SidebarGroupLabel
                     asChild
-                    className="group/label text-sidebar-foreground hover:text-primary-500 text-base"
+                    className="group/label text-sidebar-foreground hover:text-primary-500 text-base font-sans"
                   >
                     {item.items ? (
-                      <CollapsibleTrigger className="cursor-pointer">
+                      <CollapsibleTrigger className="cursor-pointer font-sans font-normal">
                         {item.title}{" "}
                         {item.items && (
                           <ChevronRight className="ml-2 transition-transform group-data-[state=open]/collapsible:rotate-90" />
                         )}
                       </CollapsibleTrigger>
                     ): (
-                      <SidebarMenuButton isActive={item.url === pathName} asChild>
+                      <SidebarMenuButton isActive={item.url === pathName} asChild className="font-normal">
                         <Link onClick={() => toggleSidebar()} href={item.url!}>
-                          <div className="font-medium hover:text-primary-500">{item.title}</div>
+                          <div className="hover:text-primary-500">{item.title}</div>
                         </Link>
                       </SidebarMenuButton>
                     )}
                   </SidebarGroupLabel>
                   {item.items?.length ? (
                     <CollapsibleContent>
-                      <SidebarMenuSub className="border-none list-none">
+                      <SidebarMenuSub className="border-none list-none  font-sans">
                         {item.items.map((item) => (
                           <SidebarMenuSubItem key={item.title}>
                             <SidebarMenuSubButton
                               asChild
-                              className="hover:text-primary-500"
+                              className="hover:text-primary-500 text-base"
                               isActive={item.url === pathName}
                             >
                               <Link onClick={() => toggleSidebar()} href={item.url}>{item.title}</Link>

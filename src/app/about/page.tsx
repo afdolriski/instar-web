@@ -7,9 +7,9 @@ export default function Page() {
     <div className="flex flex-1 flex-col gap-8">
       <Hero />
       <div className={cn(pageWrapper(), "pt-0")}>
-        <div className="space-y-8 md:space-y-16">
+        <div className="space-y-8 xl:space-y-16">
 
-          <div className="space-y-10 md:px-64">
+          <div className="space-y-10 xl:px-64">
             <h1 className="text-4xl font-bold text-center">INSTAR</h1>
 
             <div className="leading-relaxed space-y-4 text-base">

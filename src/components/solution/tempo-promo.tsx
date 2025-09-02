@@ -20,9 +20,9 @@ export default function TempoPromo() {
                 <Image
                   src={'/images/macbook-air-tempo.png'}
                   alt={'Tempo Data Premium Laptop Mockup'}
-                  width={400}
+                  width={390}
                   height={400}
-                  className="w-auto h-auto mx-auto"
+                  className="w-auto md:w-[390px] h-auto mx-auto"
                 />
               </div>
             </div>
@@ -39,9 +39,9 @@ export default function TempoPromo() {
                 <Image
                   src={'/images/tempo-subscription.png'}
                   alt={'Tempo Media Subscription Multiple Devices'}
-                  width={400}
+                  width={390}
                   height={400}
-                  className="w-auto h-auto mx-auto"
+                  className="w-auto md:w-[390px] h-auto mx-auto"
                 />
               </div>
             </div>

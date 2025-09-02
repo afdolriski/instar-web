@@ -57,8 +57,8 @@ export default function Solutions() {
           <Image
             src="/images/illustration-3.png"
             alt="Illustration"
-            width={320}
-            height={320}
+            width={520}
+            height={520}
             className="w-full h-auto col-start-1 md:col-start-2"
           />
 
@@ -89,8 +89,8 @@ export default function Solutions() {
           <Image
             src="/images/malam-anugrah-kit.png"
             alt="Illustration"
-            width={320}
-            height={320}
+            width={520}
+            height={520}
             className="w-full h-auto"
           />
 
@@ -123,8 +123,8 @@ export default function Solutions() {
           <Image
             src="/images/tempo-kit.png"
             alt="Illustration"
-            width={320}
-            height={320}
+            width={520}
+            height={520}
             className="w-full h-auto  col-start-1 md:col-start-2"
           />
 

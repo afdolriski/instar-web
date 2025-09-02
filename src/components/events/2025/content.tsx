@@ -25,10 +25,10 @@ export default function EventContent() {
 
   return (
     <Tabs defaultValue={initialTab} className="gap-0">
-      <TabsList className="w-full text-primary py-8 md:py-4">
+      <TabsList className="w-full text-primary py-8 md:py-4 sticky top-[64px] z-100">
         <TabsTrigger value="executive-briefing" className="cursor-pointer hover:text-primary-500 rounded-none w-[50%] flex flex-col md:flex-row py-8 md:py-4">
           <span>Executive Briefing</span>
-          <span>(25 Agustus 2025)</span>
+          <span>(10 September 2025)</span>
         </TabsTrigger>
         <TabsTrigger value="malam-anugrah" className="cursor-pointer hover:text-primary-500 rounded-none w-[50%] flex flex-col md:flex-row py-8 md:py-4">
           <span>Forum & Malam Anugerah</span>
@@ -48,19 +48,19 @@ export default function EventContent() {
           <h1 className="text-xl font-bold">Lokasi</h1>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
             <div>
-              <h2 className="text-xl md:text-3xl font-bold mb-4">Aroem Restaurant & Ballroom</h2>
+              <h2 className="text-xl md:text-3xl font-bold mb-4">Gedung Tempo Media, Palmerah, Jakarta Barat</h2>
               <p className="text-normal leading-relaxed">
-                Jl. Mahakam No.15, RT.1/RW.6, Kramat Pela, Kec. Kby. Baru, Kota Jakarta Selatan,
+                Jl. Palmerah Barat No.8, Grogol Utara, Kec. Kby. Lama, Kota Jakarta Selatan,
                 <br />
-                Daerah Khusus Ibukota Jakarta 12130
+                Daerah Khusus Ibukota Jakarta 12210
               </p>
             </div>
 
             <div className="relative col-start-1 row-start-1 md:col-start-2">
               <MapEmbed 
-                title="Aroem Restaurant & Ballroom"
-                embedSrc="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1983.071891951493!2d106.795718!3d-6.244775!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1898798e1c5%3A0x723c96e71ecc7511!2sAroem%20Mahakam%20Resto%2C%20Cafe%20%26%20Ballroom!5e0!3m2!1sen!2sid!4v1755954594383!5m2!1sen!2sid" 
-                mapsUrl="https://maps.app.goo.gl/U4PeWywcSYBUu2Sg6"
+                title="Gedung Tempo Media, Palmerah, Jakarta Barat"
+                embedSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.417547413599!2d106.78736297549071!3d-6.208528310816298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1145bd035f9%3A0xc744bc8572b47d1c!2sPT%20Tempo%20Inti%20Media%20Tbk!5e0!3m2!1sen!2sid!4v1756826371248!5m2!1sen!2sid" 
+                mapsUrl="https://maps.app.goo.gl/CucJTWqrNPUdCwMR9"
               />
             </div>
           </div>

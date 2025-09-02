@@ -25,7 +25,7 @@ import { Input } from "@/components/ui/input"
 import { DataTablePagination } from "@/components/ui/pagination"
 import { cn } from "@/lib/utils"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { rank2024SectorFilters, rank2024SubSectorFilters } from "@/data/rank-2025"
+import { rank2025SectorFilters, rank2025SubSectorFilters } from "@/data/rank-2025"
 import { Search } from "lucide-react"
 
 interface DataTableProps<TData, TValue> {
@@ -61,6 +61,15 @@ export function DataTable<TData, TValue>({
     }
   })
 
+  const currentSector = (table.getColumn("sector")?.getFilterValue() as string) ?? "";
+
+  const createSubSectorOptions = () => {
+    const item = rank2025SubSectorFilters.find(item => item.sector === currentSector);
+    return item ? ['Semua', ...item.sub_sectors] : [];
+  }
+
+  const subSectorFilters = createSubSectorOptions();
+
   return (
     <div className={cn("space-y-4")}>
       <div className="flex flex-wrap gap-4 justify-start items-center w-full">
@@ -78,36 +87,38 @@ export function DataTable<TData, TValue>({
           value={(table.getColumn("sector")?.getFilterValue() as string) ?? ""}
           onValueChange={(value) => {
             table.getColumn("sector")?.setFilterValue(value === 'Semua' ? '' : value)
+            table.getColumn("sub_sector")?.setFilterValue('')
           }}
         >
-          <SelectTrigger className="h-8 rounded-none">
+          <SelectTrigger className="h-8 rounded-none font-medium">
             <SelectValue placeholder="Sektor" />
           </SelectTrigger>
           <SelectContent side="bottom">
-            {rank2024SectorFilters.map((pageSize) => (
+            {rank2025SectorFilters.map((pageSize) => (
               <SelectItem key={pageSize} value={`${pageSize}`}>
                 {pageSize}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
-        {/* <Select
-          value={(table.getColumn("sector")?.getFilterValue() as string) ?? ""}
+        <Select
+          value={(table.getColumn("sub_sector")?.getFilterValue() as string) ?? ""}
           onValueChange={(value) => {
-            table.getColumn("sector")?.setFilterValue(value === 'Semua' ? '' : value)
+            table.getColumn("sub_sector")?.setFilterValue(value === 'Semua' ? '' : value)
           }}
+          disabled={!currentSector}
         >
-          <SelectTrigger className="h-8 rounded-none">
+          <SelectTrigger className="h-8 rounded-none font-medium">
             <SelectValue placeholder="Sub Sektor" />
           </SelectTrigger>
           <SelectContent side="bottom">
-            {rank2024SubSectorFilters.map((pageSize) => (
-              <SelectItem key={pageSize} value={`${pageSize}`}>
-                {pageSize}
+            {subSectorFilters.map((item, key) => (
+              <SelectItem key={key} value={`${item}`}>
+                {item}
               </SelectItem>
             ))}
           </SelectContent>
-        </Select> */}
+        </Select>
       </div>
       <div className="overflow-scroll border">
         <Table>

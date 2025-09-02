@@ -41,7 +41,7 @@ export default function RootLayout({
       >
         <SidebarProvider defaultOpen={false}>
           <SidebarInset>
-            <header className="flex h-16 shrink-0 items-center gap-2 border-b p-4 md:px-32">
+            <header className="flex h-16 shrink-0 items-center gap-2 border-b p-4 md:px-32 sticky top-0 bg-white z-1500">
               <Link href="/">
                 <Image
                   src="/images/instar.png"

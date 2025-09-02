@@ -36,7 +36,7 @@ export default function Methodology() {
   return (
     <div className="py-8 px-4 md:px-32 md:py-16">
       <div className="space-y-8 md:space-y-12">
-        <div className="space-y-4">
+        <div className="space-y-4 md:w-[75%]">
           <h2>Standar Penilaian INSTAR Berdasarkan Prinsip ESG International</h2>
           <p>
             Penilaian INSTAR dilakukan secara objektif, periodik dan tidak mencari keuntungan yang berlebihan dari
@@ -46,9 +46,9 @@ export default function Methodology() {
 
         <div className="space-y-4">
           <div>
-            <h3>1. Desk Research oleh Transparency International Indonesia (TII)</h3>
+            <h4>1. Desk Research oleh Transparency International Indonesia (TII)</h4>
             <div className="p-4 space-y-4">
-              <p>
+              <p className="md:w-[75%]">
                 TII melakukan penilaian terhadap dokumen resmi perusahaan—seperti Annual Report, Sustainability Report, dan Pedoman Etika—menggunakan 42 indikator yang mencakup:
               </p>
               <div className="space-y-6 md:flex justify-evenly md:space-x-8 md:space-y-0">
@@ -56,16 +56,16 @@ export default function Methodology() {
                   <HighlightCard key={key} {...item} />
                 ))}
               </div>
-              <p>
+              <p className="md:w-[75%]">
                 Hasil dari proses ini membentuk skor Desk Research INSTAR, yang menjadi dasar kelayakan untuk verifikasi lanjutan.
               </p>
             </div>
           </div>
 
           <div>
-            <h3>2. Verifikasi oleh Indonesia Strategy Institute (ISI)</h3>
+            <h4>2. Verifikasi oleh Indonesia Strategy Institute (ISI)</h4>
             <div className="p-4 space-y-4">
-              <p>
+              <p className="md:w-[75%]">
                 Nilai akhir INSTAR memerlukan verifikasi lanjutan dari skor Desk Research. Proses verifikasi lanjutan dilakukan oleh tim Indonesia Strategy Institute dengan melakukan: 
               </p>
               <div className="space-y-6 md:flex justify-evenly md:space-x-8 md:space-y-0">
@@ -73,13 +73,15 @@ export default function Methodology() {
                   <HighlightCard key={key} {...item} />
                 ))}
               </div>
-              <p>
+              <p className="md:w-[75%]">
                 Penilaian ini mengikuti agar hanya perusahaan yang terbaik, benar berintegritas dan tangguh yang dapat lolos.
               </p>
             </div>
           </div>
           
-          <Button variant={'outline'}>Lihat Metodologi Selengkapnya</Button>
+          <Button variant={'outline'} asChild>
+            <a href="https://drive.google.com/file/d/1gttKsLrhE6EEzVxn3qTn2kT8YzTKDDag/view" target="_blank">Lihat Metodologi Selengkapnya</a>
+          </Button>
         </div>
 
         <ExpertList />
