@@ -21,9 +21,9 @@ const collabs = [
 function TimelineItem({ children, className, position }: { children?: React.ReactNode; className?: string; position?: string }) {
   return (
     <div className={cn("relative md:p-8 w-full", className)}>
-      <div className={cn("absolute left-2.5 w-4 h-4 bg-[#fcfcfc] border-4 rounded-full md:-bottom-2", position === 'bottom' ? 'md:-top-2' : '')}></div>
-      <div className="absolute top-1.5 w-full h-0.5 bg-[#fcfcfc] md:left-0 md:hidden"></div>
-      <div className="absolute top-1.5 left-4 w-0.5 h-full bg-[#fcfcfc] invisible md:top-0 md:visible"></div>
+      <div className={cn("absolute left-2.5 w-4 h-4 bg-[#fcfcfc] border-4 rounded-full md:-bottom-2", position === 'bottom' ? 'md:-top-2' : '')}></div> 
+      <div className="absolute top-1.5 w-full h-0.5 bg-[#fcfcfc] xl:left-0 xl:hidden"></div>
+      <div className="absolute top-1.5 left-4 w-0.5 h-full bg-[#fcfcfc] invisible xl:top-0 xl:visible"></div>
       <div className="ml-12 md:ml-4 text-white p-6 md:p-0 rounded-lg">
         {children}
       </div>
@@ -37,8 +37,8 @@ export default function Timeline() {
       <div>
         <h1 className="text-2xl font-bold mb-8">Timeline INSTAR 2025</h1>
 
-        <div className="relative bg-tertiary-900 xl:grid grid-cols-12 grid-flow-row auto-rows-fr py-8 md:py-0 w-full bg-[url(/images/timeline-bg.png)] bg-cover bg-no-repeat bg-blend-luminosity md:bg-center">
-          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#d9d9d9] md:left-0 md:top-[50%] md:w-full md:h-[1px]"></div>
+        <div className="relative bg-tertiary-900 xl:grid grid-cols-12 grid-flow-row auto-rows-fr py-8 xl:py-0 w-full bg-[url(/images/timeline-bg.png)] bg-cover bg-no-repeat bg-blend-luminosity md:bg-center">
+          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#d9d9d9] xl:left-0 xl:top-[50%] xl:w-full xl:h-[1px]"></div>
 
           <TimelineItem className="relative row-start-1 col-start-2 col-end-6 md:pb-4">
             <h3 className="text-white text-xl font-secondary font-bold mb-2">Executive Briefing</h3>
