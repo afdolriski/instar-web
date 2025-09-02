@@ -11,7 +11,7 @@ const TimelineInstar2025 = () => {
     {
       title: "Executive Briefing",
       description: "Pengenalan awal INSTAR kepada perusahaan hasil seleksi awal",
-      date: "28 Agustus 2025",
+      date: "10 September 2025",
       link: { href: "#", text: "Lihat Executing Briefing" },
     },
     {

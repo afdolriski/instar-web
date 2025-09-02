@@ -43,7 +43,7 @@ export default function Timeline() {
           <TimelineItem className="relative row-start-1 col-start-2 col-end-6 md:pb-4">
             <h3 className="text-white text-xl font-secondary font-bold mb-2">Executive Briefing</h3>
             <p className="text-sm mb-4 opacity-90">Pengenalan awal INSTAR kepada perusahaan hasil seleksi awal</p>
-            <p className="text-sm font-medium mb-4">28 Agustus 2025</p>
+            <p className="text-sm font-medium mb-4">10 September 2025</p>
             <Link href="/events/2025" className="inline-flex items-center text-sm underline hover:no-underline text-white font-secondary">
               Lihat Executive Briefing
               <ArrowRight className="ml-1 w-4 h-4" />

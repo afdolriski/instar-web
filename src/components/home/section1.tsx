@@ -1,7 +1,5 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ImageZoom } from '@/components/ui/shadcn-io/image-zoom';
-import { Maximize } from "lucide-react";
 import ImageZoomClient from "../image-zoom-client";
 import Link from "next/link";
 
