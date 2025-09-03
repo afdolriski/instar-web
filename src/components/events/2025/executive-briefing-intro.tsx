@@ -14,7 +14,7 @@ export default function ExecutiveBriefingIntro() {
         <div className="space-y-3 pt-4">
           <div className="flex items-start gap-3">
             <Calendar className="w-5 h-5" />
-            <span className="text-base font-bold">28 Agustus 2025</span>
+            <span className="text-base font-bold">10 September 2025</span>
           </div>
 
           <div className="flex items-start gap-3">
