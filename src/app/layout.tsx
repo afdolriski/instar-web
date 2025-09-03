@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Montserrat, Merriweather } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google'
 import "./globals.css";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId="G-47XK9LY0NP" />
+      <GoogleTagManager gtmId="GTM-TR8G53WZ" />
       <body
         className={`${monsterratFont.variable} ${merriWeatherFont.variable} font-sans antialiased`}
       >
