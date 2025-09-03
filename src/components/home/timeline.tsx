@@ -20,11 +20,11 @@ const collabs = [
 
 function TimelineItem({ children, className, position }: { children?: React.ReactNode; className?: string; position?: string }) {
   return (
-    <div className={cn("relative md:p-8 w-full", className)}>
-      <div className={cn("absolute left-2.5 w-4 h-4 bg-[#fcfcfc] border-4 rounded-full md:-bottom-2", position === 'bottom' ? 'md:-top-2' : '')}></div> 
+    <div className={cn("relative xl:p-8 w-full", className)}>
+      <div className={cn("absolute left-2.5 w-4 h-4 bg-[#fcfcfc] border-4 rounded-full xl:-bottom-2", position === 'bottom' ? 'md:-top-2' : '')}></div> 
       <div className="absolute top-1.5 w-full h-0.5 bg-[#fcfcfc] xl:left-0 xl:hidden"></div>
       <div className="absolute top-1.5 left-4 w-0.5 h-full bg-[#fcfcfc] invisible xl:top-0 xl:visible"></div>
-      <div className="ml-12 md:ml-4 text-white p-6 md:p-0 rounded-lg">
+      <div className="ml-12 xl:ml-4 text-white p-6 xl:p-0 rounded-lg">
         {children}
       </div>
     </div>
