@@ -28,3 +28,6 @@ npm run build
 ```
 
 Use the `/out/` folder to deploy static site.
+
+## Dependency
+Google Analytics
