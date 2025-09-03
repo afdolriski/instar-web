@@ -19,7 +19,7 @@ export default function ExecutiveBriefingIntro() {
 
           <div className="flex items-start gap-3">
             <MapPin className="w-5 h-5" />
-            <span className="text-base font-bold">Aroem Restaurant & Ballroom, Jakarta Selatan</span>
+            <span className="text-base font-bold">Gedung Tempo, Jl. Palmerah Barat No. 8, Jakarta Selatan 12210</span>
           </div>
         </div>
       </div>
